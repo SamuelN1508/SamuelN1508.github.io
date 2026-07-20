@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+<!-- Konfigurasi Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -31,16 +32,16 @@
   }
 </script>
 
-<link rel="stylesheet" href="style.css">
+<style>
+  /* Efek scroll halus bawaan CSS */
+  html { scroll-behavior: smooth; }
+  .page-section { scroll-margin-top: 80px; }
+</style>
 </head>
 
-<body class="font-body pb-24 md:pb-0">
+<body class="font-body pb-24 md:pb-0 bg-cream">
 
-<!-- ===================== SPRITE IKON KHAS SINGKONG/TELO =====================
-     Dua ikon custom (bukan emoji) sebagai ciri khas dusun karena singkong/telo
-     adalah hasil bumi yang paling banyak ditanam warga. Dipakai berulang di
-     halaman lewat <svg><use href="#ikon-..."></use></svg>, warnanya ikut
-     class text-* (mis. text-hijau / text-terakota) karena fill="currentColor". -->
+<!-- ===================== SPRITE IKON KHAS ===================== -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="ikon-daun-singkong" viewBox="0 0 100 100">
     <g fill="currentColor">
@@ -64,86 +65,77 @@
   </symbol>
 </svg>
 
-<div id="toast-wrap"></div>
-
 <!-- ===================== NAV DESKTOP ===================== -->
 <header class="hidden md:block sticky top-0 z-40 bg-cream/95 backdrop-blur border-b border-[#E7DEC9]">
-  <div class="motif-anyaman-line w-full"></div>
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <button onclick="gotoPage('home')" class="flex items-center gap-3">
+    <a href="#page-home" class="flex items-center gap-3">
       <span class="w-10 h-10 rounded-full bg-hijau text-cream flex items-center justify-center font-display text-lg">DK</span>
       <span class="font-display text-xl text-ink">Dusun Dawung Kulon</span>
-    </button>
+    </a>
     <nav class="flex items-center gap-7 text-sm font-semibold text-coklat">
-      <button data-nav="home" class="top-nav-item pb-1" onclick="gotoPage('home')">Home</button>
-      <button data-nav="acara" class="top-nav-item pb-1" onclick="gotoPage('acara')">Acara</button>
-      <button data-nav="hasilbumi" class="top-nav-item pb-1" onclick="gotoPage('hasilbumi')">Hasil Bumi</button>
-      <button data-nav="tentang" class="top-nav-item pb-1" onclick="gotoPage('tentang')">Tentang Dusun</button>
-      <button data-nav="kontak" class="top-nav-item pb-1" onclick="gotoPage('kontak')">Kontak</button>
+      <a href="#page-home" class="hover:text-terakota transition">Home</a>
+      <a href="#page-acara" class="hover:text-terakota transition">Acara</a>
+      <a href="#page-hasilbumi" class="hover:text-terakota transition">Hasil Bumi</a>
+      <a href="#page-tentang" class="hover:text-terakota transition">Tentang Dusun</a>
+      <a href="#page-kontak" class="hover:text-terakota transition">Kontak</a>
     </nav>
   </div>
 </header>
 
-<!-- ===================== NAV MOBILE (atas: logo saja) ===================== -->
+<!-- ===================== NAV MOBILE ===================== -->
 <header class="md:hidden sticky top-0 z-40 bg-cream/95 backdrop-blur border-b border-[#E7DEC9]">
-  <div class="motif-anyaman-line w-full"></div>
   <div class="px-4 py-3 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <!-- Klik lambang "DK" untuk membuka Panel Admin -->
-      <span onclick="ketukRahasiaAdmin()" class="select-none w-9 h-9 rounded-full bg-hijau text-cream flex items-center justify-center font-display">DK</span>
+    <a href="#page-home" class="flex items-center gap-2">
+      <span class="w-9 h-9 rounded-full bg-hijau text-cream flex items-center justify-center font-display">DK</span>
       <span class="font-display text-lg text-ink">Dawung Kulon</span>
-    </div>
+    </a>
   </div>
 </header>
 
-<!-- ===================== NAV MOBILE (bawah, mengambang) ===================== -->
 <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[#EFE7D6] flex justify-around py-2 px-1">
-  <button data-nav="home" class="bottom-nav-item active flex flex-col items-center gap-0.5 flex-1 py-1" onclick="gotoPage('home')">
-    <span class="nav-icon-wrap w-8 h-8 rounded-full flex items-center justify-center text-sm bg-cream2 text-coklat">🏠</span>
+  <a href="#page-home" class="flex flex-col items-center gap-0.5 flex-1 py-1">
+    <span class="w-8 h-8 rounded-full flex items-center justify-center text-sm bg-cream2 text-coklat">🏠</span>
     <span class="text-[10px] text-coklat">Home</span>
-  </button>
-  <button data-nav="acara" class="bottom-nav-item flex flex-col items-center gap-0.5 flex-1 py-1" onclick="gotoPage('acara')">
-    <span class="nav-icon-wrap w-8 h-8 rounded-full flex items-center justify-center text-sm bg-cream2 text-coklat">📅</span>
+  </a>
+  <a href="#page-acara" class="flex flex-col items-center gap-0.5 flex-1 py-1">
+    <span class="w-8 h-8 rounded-full flex items-center justify-center text-sm bg-cream2 text-coklat">📅</span>
     <span class="text-[10px] text-coklat">Acara</span>
-  </button>
-  <button data-nav="hasilbumi" class="bottom-nav-item flex flex-col items-center gap-0.5 flex-1 py-1" onclick="gotoPage('hasilbumi')">
-    <span class="nav-icon-wrap w-8 h-8 rounded-full flex items-center justify-center text-sm bg-cream2 text-coklat">🧺</span>
-    <span class="text-[10px] text-coklat">Hasil Bumi</span>
-  </button>
-  <button data-nav="tentang" class="bottom-nav-item flex flex-col items-center gap-0.5 flex-1 py-1" onclick="gotoPage('tentang')">
-    <span class="nav-icon-wrap w-8 h-8 rounded-full flex items-center justify-center text-sm bg-cream2 text-coklat">📖</span>
+  </a>
+  <a href="#page-hasilbumi" class="flex flex-col items-center gap-0.5 flex-1 py-1">
+    <span class="w-8 h-8 rounded-full flex items-center justify-center text-sm bg-cream2 text-coklat">🧺</span>
+    <span class="text-[10px] text-coklat">Hasil</span>
+  </a>
+  <a href="#page-tentang" class="flex flex-col items-center gap-0.5 flex-1 py-1">
+    <span class="w-8 h-8 rounded-full flex items-center justify-center text-sm bg-cream2 text-coklat">📖</span>
     <span class="text-[10px] text-coklat">Tentang</span>
-  </button>
-  <button data-nav="kontak" class="bottom-nav-item flex flex-col items-center gap-0.5 flex-1 py-1" onclick="gotoPage('kontak')">
-    <span class="nav-icon-wrap w-8 h-8 rounded-full flex items-center justify-center text-sm bg-cream2 text-coklat">💬</span>
+  </a>
+  <a href="#page-kontak" class="flex flex-col items-center gap-0.5 flex-1 py-1">
+    <span class="w-8 h-8 rounded-full flex items-center justify-center text-sm bg-cream2 text-coklat">💬</span>
     <span class="text-[10px] text-coklat">Kontak</span>
-  </button>
+  </a>
 </nav>
 
 <main class="max-w-6xl mx-auto">
 
   <!-- ===================== 1. HOME ===================== -->
-  <section id="page-home" class="page-section active">
-    <div class="relative motif-anyaman px-5 md:px-10 pt-10 pb-14 md:pt-16 md:pb-20 overflow-hidden">
-      <!-- Dekorasi daun & umbi singkong: hiasan latar saja, samar, tidak menghalangi teks -->
-      <svg viewBox="0 0 100 100" class="ikon-singkong absolute -right-8 -top-12 w-48 h-48 md:w-64 md:h-64 text-hijau/10 rotate-12 pointer-events-none" aria-hidden="true"><use href="#ikon-daun-singkong"></use></svg>
-      <svg viewBox="0 0 100 60" class="ikon-singkong absolute right-6 bottom-2 w-24 h-14 md:w-32 md:h-20 text-terakota/15 -rotate-6 pointer-events-none hidden sm:block" aria-hidden="true"><use href="#ikon-umbi-singkong"></use></svg>
-
+  <section id="page-home" class="page-section">
+    <div class="relative px-5 md:px-10 pt-10 pb-14 md:pt-16 md:pb-20 overflow-hidden">
+      <svg viewBox="0 0 100 100" class="absolute -right-8 -top-12 w-48 h-48 md:w-64 md:h-64 text-hijau/10 rotate-12 pointer-events-none" aria-hidden="true"><use href="#ikon-daun-singkong"></use></svg>
+      
       <p class="text-terakota font-bold tracking-wide text-xs uppercase mb-3">Pacitan, Jawa Timur</p>
       <h1 class="font-display text-4xl md:text-6xl leading-[1.05] text-ink max-w-2xl">
         Tenang, Hijau, Asri dan Bersatu: Harmoni dusun kecil kami.
       </h1>
       <p class="mt-5 text-coklat/90 max-w-xl text-base md:text-lg">
-        Selamat datang di website Dusun Dawung Kulon, Desa Candi, Kecamatan Pringkuku, Kabupaten Pacitan. 
-        Tempat kami berbagi kabar, kegiatan gotong royong, hasil kebun dll.
+        Selamat datang di website Dusun Dawung Kulon, Desa Candi, Kecamatan Pringkuku, Kabupaten Pacitan. Tempat kami berbagi kabar, kegiatan gotong royong, hasil kebun dll.
       </p>
       <div class="mt-4 inline-flex items-center gap-2 bg-terakota/10 text-terakota text-xs font-bold px-3 py-1.5 rounded-full">
-        <svg viewBox="0 0 100 100" class="ikon-singkong w-4 h-4"><use href="#ikon-daun-singkong"></use></svg>
+        <svg viewBox="0 0 100 100" class="w-4 h-4"><use href="#ikon-daun-singkong"></use></svg>
         Sentra Singkong &amp; Kelapa
       </div>
       <div class="mt-7 flex flex-wrap gap-3">
-        <button onclick="gotoPage('acara')" class="bg-hijau text-cream px-6 py-3 rounded-full font-semibold text-sm hover:bg-hijau/90 transition">Lihat Kegiatan Warga</button>
-        <button onclick="gotoPage('hasilbumi')" class="bg-white border border-hijau/30 text-hijau px-6 py-3 rounded-full font-semibold text-sm hover:bg-hijau/5 transition">Jelajah Hasil Bumi</button>
+        <a href="#page-acara" class="bg-hijau text-cream px-6 py-3 rounded-full font-semibold text-sm hover:bg-hijau/90 transition inline-block">Lihat Kegiatan Warga</a>
+        <a href="#page-hasilbumi" class="bg-white border border-hijau/30 text-hijau px-6 py-3 rounded-full font-semibold text-sm hover:bg-hijau/5 transition inline-block">Jelajah Hasil Bumi</a>
       </div>
     </div>
 
@@ -156,117 +148,124 @@
         <p class="font-display text-3xl text-terakota">RT 1 &amp; RT 02</p>
         <p class="text-xs md:text-sm text-coklat/80 mt-1">Wilayah RW 15</p>
       </div>
-      <div class="relative overflow-hidden bg-hijau text-cream rounded-xl2 p-4 md:p-6 shadow-sm">
-        <svg viewBox="0 0 100 100" class="ikon-singkong absolute -right-3 -bottom-3 w-16 h-16 opacity-20 pointer-events-none" aria-hidden="true"><use href="#ikon-daun-singkong"></use></svg>
-        <p class="font-display text-3xl">Singkong &amp; Kelapa</p>
-        <p class="text-xs md:text-sm opacity-90 mt-1">Hasil bumi paling banyak dihasilkan warga</p>
+      <div class="bg-hijau text-cream rounded-xl2 p-4 md:p-6 shadow-sm">
+        <p class="font-display text-2xl md:text-3xl">Singkong</p>
+        <p class="text-xs md:text-sm opacity-90 mt-1">Hasil bumi andalan</p>
       </div>
       <div class="bg-terakota text-cream rounded-xl2 p-4 md:p-6 shadow-sm">
-        <p class="font-display text-3xl">325 mdpl</p>
+        <p class="font-display text-2xl md:text-3xl">325 mdpl</p>
         <p class="text-xs md:text-sm opacity-90 mt-1">Ketinggian dusun</p>
       </div>
-    </div>
-
-    <div class="px-5 md:px-10 pb-8">
-      <div class="relative overflow-hidden motif-singkong bg-terakota/5 border border-terakota/20 rounded-xl2 p-5 md:p-7 flex flex-wrap sm:flex-nowrap items-center gap-5">
-        <svg viewBox="0 0 100 60" class="ikon-singkong w-16 h-10 md:w-20 md:h-12 text-terakota shrink-0" aria-hidden="true"><use href="#ikon-umbi-singkong"></use></svg>
-        <div class="flex-1 min-w-[200px]">
-          <p class="font-display text-lg md:text-xl text-ink">Singkong &amp; Kelapa, Hasil Bumi Andalan Dawung Kulon</p>
-          <p class="text-sm text-coklat/80 mt-1">Hampir setiap warga menanam singkong kemudian diolah jadi utri, entho-entho, getuk, tiwul dan masih banyak lagi.</p>
-        </div>
-        <button onclick="gotoPage('hasilbumi')" class="bg-terakota text-cream px-5 py-2.5 rounded-full text-sm font-semibold shrink-0 hover:bg-terakota/90 transition">Lihat Semua →</button>
-      </div>
-    </div>
-
-    <div class="px-5 md:px-10 pb-16">
-      <div class="flex items-center justify-between mb-4">
-        <h2 class="font-display text-2xl text-ink">Acara Terbaru Dusun</h2>
-        <button onclick="gotoPage('acara')" class="text-sm font-semibold text-terakota">Semua acara →</button>
-      </div>
-      <div id="home-acara-preview" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
     </div>
   </section>
 
   <!-- ===================== 2. ACARA ===================== -->
-  <section id="page-acara" class="page-section px-5 md:px-10 py-10 md:py-14">
+  <section id="page-acara" class="page-section px-5 md:px-10 py-10 md:py-14 bg-white/50 border-t border-[#E7DEC9]">
     <p class="text-terakota font-bold tracking-wide text-xs uppercase mb-2">Kegiatan Warga</p>
     <h2 class="font-display text-3xl md:text-4xl text-ink mb-2">Acara &amp; Tradisi Dusun</h2>
     <p class="text-coklat/80 max-w-xl mb-8">Dari gotong royong tiap minggu sampai tradisi turun-temurun, begini keseharian kami merawat kebersamaan.</p>
-    <div id="acara-list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    
+    <div class="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+      
+      <div class="bg-white rounded-2xl border border-[#EFE7D6] overflow-hidden shadow-sm hover:shadow-md transition">
+        <div class="w-full bg-[#F9F7F3] flex items-center justify-center">
+          <img src="https://via.placeholder.com/800x450" alt="Gotong Royong" class="w-full h-auto max-h-[400px] object-contain">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-display text-ink mb-2">Gotong Royong Bersih Desa</h3>
+          <p class="text-sm text-coklat/80 leading-relaxed">Kegiatan rutin warga membersihkan lingkungan sekitar Balai Tugu dan jalan utama dusun setiap menjelang musim penghujan.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-[#EFE7D6] overflow-hidden shadow-sm hover:shadow-md transition">
+        <div class="w-full bg-[#F9F7F3] flex items-center justify-center">
+          <img src="https://via.placeholder.com/800x450" alt="Musyawarah Karang Taruna" class="w-full h-auto max-h-[400px] object-contain">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-display text-ink mb-2">Musyawarah Karang Taruna</h3>
+          <p class="text-sm text-coklat/80 leading-relaxed">Pertemuan pemuda-pemudi untuk merencanakan kegiatan sosial dan pengembangan potensi dusun Dawung Kulon.</p>
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <!-- ===================== 3. HASIL BUMI ===================== -->
-  <section id="page-hasilbumi" class="page-section px-5 md:px-10 py-10 md:py-14">
+  <section id="page-hasilbumi" class="page-section px-5 md:px-10 py-10 md:py-14 border-t border-[#E7DEC9]">
     <p class="text-terakota font-bold tracking-wide text-xs uppercase mb-2">Katalog Warga</p>
     <h2 class="font-display text-3xl md:text-4xl text-ink mb-2 flex items-center gap-3">
-      <svg viewBox="0 0 100 60" class="ikon-singkong w-9 h-6 md:w-10 md:h-7 text-terakota shrink-0" aria-hidden="true"><use href="#ikon-umbi-singkong"></use></svg>
+      <svg viewBox="0 0 100 60" class="w-9 h-6 md:w-10 md:h-7 text-terakota shrink-0" aria-hidden="true"><use href="#ikon-umbi-singkong"></use></svg>
       Hasil Bumi &amp; Produk UMKM
     </h2>
     <p class="text-coklat/80 max-w-xl mb-8">Panen kebun dan buah tangan warga, dipajang di sini seperti etalase pasar dusun.</p>
-    <div id="hasilbumi-list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    
+    <div class="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+      
+      <div class="bg-white rounded-2xl border border-[#EFE7D6] overflow-hidden shadow-sm hover:shadow-md transition">
+        <div class="w-full bg-[#F9F7F3] flex items-center justify-center">
+          <img src="https://via.placeholder.com/800x450" alt="Panen Singkong" class="w-full h-auto max-h-[400px] object-contain">
+        </div>
+        <div class="p-6">
+          <span class="inline-block px-3 py-1 bg-hijau/10 text-hijau text-xs font-bold rounded-full mb-3">Hasil Pertanian</span>
+          <h3 class="text-xl font-display text-ink mb-2">Singkong (Telo) Khas Dawung</h3>
+          <p class="text-sm text-coklat/80 leading-relaxed">Komoditas utama warga yang ditanam di area perbukitan, dikenal memiliki tekstur yang empuk dan cocok untuk berbagai olahan.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-[#EFE7D6] overflow-hidden shadow-sm hover:shadow-md transition">
+        <div class="w-full bg-[#F9F7F3] flex items-center justify-center">
+          <img src="https://via.placeholder.com/800x450" alt="Kopi Robusta" class="w-full h-auto max-h-[400px] object-contain">
+        </div>
+        <div class="p-6">
+          <span class="inline-block px-3 py-1 bg-coklat/10 text-coklat text-xs font-bold rounded-full mb-3">Produk UMKM</span>
+          <h3 class="text-xl font-display text-ink mb-2">Kopi Robusta Lokal</h3>
+          <p class="text-sm text-coklat/80 leading-relaxed">Biji kopi pilihan yang dipetik langsung dari kebun warga, disangrai secara tradisional menghasilkan aroma yang khas.</p>
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <!-- ===================== 4. TENTANG DUSUN ===================== -->
-<section id="page-tentang" class="page-section px-5 md:px-10 py-10 md:py-14">
-  <p class="text-terakota font-bold tracking-wide text-xs uppercase mb-2">Cerita Kami</p>
-  <h2 class="font-display text-3xl md:text-4xl text-ink mb-6">Tentang Dusun Dawung Kulon</h2>
-  
-  <div class="max-w-3xl space-y-6 text-coklat/90 leading-relaxed">
-    <p>Wilayah yang berjarak 19 km dari pusat kota Pacitan ke arah barat dengan jalan yang berkelok-kelok yang akan menguji adrenalin kamu saat berkendara. Dusun Dawung kulon hanya berjarak 2.5 km dari wisata pantai srau. Ketika sampai di dusun Dawung kulon kamu akan mendapati suasana yang tenang, nyaman, ikatan sosial yang erat antara warga, serta tata letak permukiman yang menyebar atau berkelompok dalam jumlah kecil. Lingkungan ini didominasi oleh bentang alam pedesaan seperti pertanian, perkebunan dan hutan.</p>
+  <section id="page-tentang" class="page-section px-5 md:px-10 py-10 md:py-14 bg-white/50 border-t border-[#E7DEC9]">
+    <p class="text-terakota font-bold tracking-wide text-xs uppercase mb-2">Cerita Kami</p>
+    <h2 class="font-display text-3xl md:text-4xl text-ink mb-6">Tentang Dusun Dawung Kulon</h2>
     
-    <!-- Bagian Sekilas Wilayah -->
-    <div class="mt-8 motif-anyaman rounded-2xl p-6 md:p-8 border border-[#EFE7D6]">
-      <h3 class="font-display text-xl text-ink mb-4">Sekilas Wilayah</h3>
-      <ul class="text-sm md:text-base text-coklat/90 space-y-3">
-        <li>📍 Desa Candi, Kecamatan Pringkuku, Kabupaten Pacitan, Jawa Timur</li>
-        <li>🏕️ Berada di kawasan perbukitan</li>
-        <li>🌱 Hasil bumi terbanyak: kelapa, singkong dan palawija lainnya</li>
-      </ul>
+    <div class="max-w-3xl space-y-6 text-coklat/90 leading-relaxed">
+      <p>Wilayah yang berjarak 19 km dari pusat kota Pacitan ke arah barat dengan jalan yang berkelok-kelok yang akan menguji adrenalin kamu saat berkendara. Dusun Dawung kulon hanya berjarak 2.5 km dari wisata pantai srau. Ketika sampai di dusun Dawung kulon kamu akan mendapati suasana yang tenang, nyaman, ikatan sosial yang erat antara warga, serta tata letak permukiman yang menyebar atau berkelompok dalam jumlah kecil. Lingkungan ini didominasi oleh bentang alam pedesaan seperti pertanian, perkebunan dan hutan.</p>
+      
+      <div class="mt-8 bg-cream2 rounded-2xl p-6 md:p-8 border border-[#EFE7D6]">
+        <h3 class="font-display text-xl text-ink mb-4">Sekilas Wilayah</h3>
+        <ul class="text-sm md:text-base text-coklat/90 space-y-3">
+          <li>📍 Desa Candi, Kecamatan Pringkuku, Kabupaten Pacitan, Jawa Timur</li>
+          <li>🏕️ Berada di kawasan perbukitan</li>
+          <li>🌱 Hasil bumi terbanyak: kelapa, singkong dan palawija lainnya</li>
+        </ul>
+      </div>
+
+      <div class="pt-4">
+        <h3 class="font-display text-xl text-ink mb-4">Karakteristik Dusun:</h3>
+        <ul class="space-y-4 text-sm md:text-base text-coklat/90">
+          <li class="flex items-start gap-3">
+            <span class="text-terakota font-bold mt-0.5">✓</span>
+            <span><strong>Ikatan sosial:</strong> Hubungan antar warga sangat erat dan gotong royong mendominasi di kehidupan sehari-hari karena warga yang saling mengenal dengan baik.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-terakota font-bold mt-0.5">✓</span>
+            <span><strong>Mata pencaharian:</strong> Mayoritas penduduk bergerak di sektor agraris atau pertanian, perkebunan, peternakan, dan pengrajin lokal yang memanfaatkan sumber daya alam setempat.</span>
+          </li>
+        </ul>
+      </div>
+      
+      <p class="pt-4">Kami percaya, dusun sekecil apapun layak dan punya hak untuk punya cerita yang akan terus dan selalu kami jaga mulai dari generasi anak-anak muda yang bergabung dalam organisasi karang taruna serta para tokoh masyarakat supaya kabar dusun bisa terjaga serta sampai dimanapun dan kapanpun.</p>
     </div>
 
-    <!-- Bagian Karakteristik Dusun -->
-    <div class="pt-4">
-      <h3 class="font-display text-xl text-ink mb-4">Karakteristik Dusun:</h3>
-      <ul class="space-y-4 text-sm md:text-base text-coklat/90">
-        <li class="flex items-start gap-3">
-          <span class="text-terakota font-bold mt-0.5">✓</span>
-          <span><strong>Ikatan sosial:</strong> Hubungan antar warga sangat erat dan gotong royong mendominasi di kehidupan sehari-hari karena warga yang saling mengenal dengan baik.</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-terakota font-bold mt-0.5">✓</span>
-          <span><strong>Mata pencaharian:</strong> Mayoritas penduduk bergerak di sektor agraris atau pertanian, perkebunan, peternakan, dan pengrajin lokal yang memanfaatkan sumber daya alam setempat.</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-terakota font-bold mt-0.5">✓</span>
-          <span><strong>Suasana Lingkungan:</strong> Dengan bertahan nya pohon-pohon yang rindang serta tetap terjaga nya keasrian lingkungan membuat udara masih sejuk.</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-terakota font-bold mt-0.5">✓</span>
-          <span><strong>Fasilitas umum:</strong> Fasilitas seperti Sekolah mulai dari jenjang paud sampai dengan SMP, sarana kesehatan, pasar tradisional dan kantor pemerintah desa bisa di akses dalam waktu kurang dari 10 menit.</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-terakota font-bold mt-0.5">✓</span>
-          <span><strong>Akses jalan:</strong> Walaupun terletak di pinggiran akses jalan sudah oke, karena termasuk jalur ke wisata Pantai Srau sehingga kendaraan roda dua sampai roda enam bisa berlalu lalang.</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-terakota font-bold mt-0.5">✓</span>
-          <span><strong>Hasil bumi:</strong> Hasil bumi didominasi oleh kelapa, singkong, serta masih banyak lagi hasil pertanian yang tumbuh subur di dusun Dawung kulon.</span>
-        </li>
-      </ul>
-    </div>
-    
-    <p class="pt-4">Kami percaya, dusun sekecil apapun layak dan punya hak untuk punya cerita yang akan terus dan selalu kami jaga mulai dari generasi anak-anak muda yang bergabung dalam organisasi karang taruna serta para tokoh masyarakat supaya kabar dusun bisa terjaga serta sampai dimanapun dan kapanpun.</p>
-  </div>
-
-  <div class="mt-10 pt-6 border-t border-[#EFE7D6]">
+    <div class="mt-10 pt-6 border-t border-[#EFE7D6]">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-4">
         <div>
           <h3 class="font-display text-xl text-ink mb-1">Lokasi Dusun Dawung Kulon</h3>
           <p class="text-sm text-coklat/80">Jelajahi peta di bawah ini untuk melihat lokasi detail wilayah kami.</p>
         </div>
-        <a href="https://maps.google.com/?q=Dusun+Dawung+Kulon" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-terakota text-sm font-semibold hover:underline">
-          Buka di Aplikasi Google Maps ↗
-        </a>
       </div>
 
       <div class="w-full overflow-hidden rounded-2xl border border-[#EFE7D6] shadow-sm bg-[#EFE7D6]">
@@ -280,249 +279,63 @@
         </iframe>
       </div>
     </div>
-  </div>
-</section>
-
-
+  </section>
 
   <!-- ===================== 5. KONTAK / SOSMED ===================== -->
-  <section id="page-kontak" class="page-section px-5 md:px-10 py-10 md:py-14">
+  <section id="page-kontak" class="page-section px-5 md:px-10 py-10 md:py-14 border-t border-[#E7DEC9]">
     <p class="text-terakota font-bold tracking-wide text-xs uppercase mb-2">Sapa Kami</p>
     <h2 class="font-display text-3xl md:text-4xl text-ink mb-2">Kontak &amp; Media Sosial</h2>
     <p class="text-coklat/80 max-w-xl mb-8">Ada pertanyaan, mau mampir, atau mau kirim kabar? Hubungi kami lewat salah satu jalur ini.</p>
 
     <div class="grid sm:grid-cols-2 gap-4 max-w-2xl mb-10">
-      <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white border border-[#EFE7D6] rounded-xl2 p-5 hover:shadow-md transition">
-        <span class="w-11 h-11 rounded-full bg-hijau text-cream flex items-center justify-center text-xl">💬</span>
+      <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white border border-[#EFE7D6] rounded-2xl p-5 hover:shadow-md transition">
+        <span class="w-11 h-11 rounded-full bg-hijau text-cream flex items-center justify-center">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </span>
         <div><p class="font-semibold text-ink">WhatsApp Pengurus</p><p class="text-sm text-coklat/70">+62 812-3456-7890</p></div>
       </a>
-      <a href="https://instagram.com/dawungkulon" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white border border-[#EFE7D6] rounded-xl2 p-5 hover:shadow-md transition">
-        <span class="w-11 h-11 rounded-full bg-terakota text-cream flex items-center justify-center text-xl">📷</span>
-        <div><p class="font-semibold text-ink">Instagram</p><p class="text-sm text-coklat/70">@dawungkulon</p></div>
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=61591926609213" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white border border-[#EFE7D6] rounded-xl2 p-5 hover:shadow-md transition">
-        <span class="w-11 h-11 rounded-full bg-coklat text-cream flex items-center justify-center text-xl">📘</span>
-        <div><p class="font-semibold text-ink">Facebook</p><p class="text-sm text-coklat/70">DW Kulon</p></div>
-      </a>
-      <a href="mailto:dawungkulon.dusun@gmail.com" class="flex items-center gap-4 bg-white border border-[#EFE7D6] rounded-xl2 p-5 hover:shadow-md transition">
-        <span class="w-11 h-11 rounded-full bg-ink text-cream flex items-center justify-center text-xl">✉️</span>
-        <div><p class="font-semibold text-ink">Email</p><p class="text-sm text-coklat/70">admindawungkulon@gmail.com</p></div>
-      </a>
     </div>
 
-   <form id="form-kontak" class="space-y-5">
-  
-  <!-- Input Nama -->
-  <div>
-    <label for="nama" class="block text-sm text-coklat/90 mb-1 font-semibold">Nama Lengkap</label>
-    <input type="text" id="nama" name="nama" required placeholder="Tulis nama Anda"
-           class="w-full px-4 py-3 bg-[#F9F7F3] border border-[#EFE7D6] rounded-xl focus:outline-none focus:border-terakota focus:ring-1 focus:ring-terakota transition">
-  </div>
+    <!-- Formulir HTML Asli (Tanpa JS, menggunakan endpoint Formspree) -->
+    <div class="max-w-2xl mt-12 bg-white p-6 md:p-8 border border-[#EFE7D6] rounded-2xl shadow-sm">
+      <h3 class="font-display text-2xl text-ink mb-2">Kirim Pesan</h3>
+      <p class="text-sm text-coklat/80 mb-6">Punya pertanyaan atau masukan? Jangan ragu untuk menghubungi pengurus dusun melalui formulir di bawah ini.</p>
+      
+      <!-- Ganti KODE_UNIK_ANDA dengan kode formspree milik Anda -->
+      <form action="https://formspree.io/f/KODE_UNIK_ANDA" method="POST" class="space-y-5">
+        <input type="hidden" name="subject" value="Pesan Baru dari Website Dusun Dawung Kulon">
 
-  <!-- Input Email / Kontak -->
-  <div>
-    <label for="kontak" class="block text-sm text-coklat/90 mb-1 font-semibold">Email atau No. WhatsApp</label>
-    <input type="text" id="kontak" name="kontak" required placeholder="Agar kami bisa membalas pesan Anda"
-           class="w-full px-4 py-3 bg-[#F9F7F3] border border-[#EFE7D6] rounded-xl focus:outline-none focus:border-terakota focus:ring-1 focus:ring-terakota transition">
-  </div>
-
-  <!-- Input Pesan -->
-  <div>
-    <label for="pesan" class="block text-sm text-coklat/90 mb-1 font-semibold">Isi Pesan</label>
-    <textarea id="pesan" name="pesan" rows="4" required placeholder="Tulis pesan atau masukan Anda di sini..."
-              class="w-full px-4 py-3 bg-[#F9F7F3] border border-[#EFE7D6] rounded-xl focus:outline-none focus:border-terakota focus:ring-1 focus:ring-terakota transition"></textarea>
-  </div>
-
-  <!-- Tombol Kirim -->
-  <button type="submit" id="tombol-kirim" class="w-full bg-terakota text-white font-semibold py-3.5 rounded-xl hover:bg-terakota/90 transition shadow-sm">
-    Kirim Pesan Sekarang
-  </button>
-  
-</form>
-
-<!-- ===================== MODAL: LOGIN ADMIN (EMAIL) ===================== -->
-<div id="modal-login" class="fixed inset-0 z-50 hidden items-center justify-center modal-backdrop px-3 py-6">
-  <div class="bg-cream rounded-xl2 w-full max-w-sm shadow-2xl overflow-hidden">
-    <div class="flex items-center justify-between px-5 py-4 border-b border-[#E7DEC9] bg-white">
-      <div>
-        <p class="text-[11px] font-bold uppercase tracking-wide text-terakota">Khusus Pengurus</p>
-        <h3 class="font-display text-xl text-ink">Masuk Panel Admin</h3>
-      </div>
-      <button onclick="closeModal('modal-login')" aria-label="Tutup" class="w-9 h-9 rounded-full bg-cream2 hover:bg-[#E7DEC9] transition flex items-center justify-center text-lg">✕</button>
-    </div>
-    <form id="login-form" onsubmit="handleAdminLogin(event)" class="p-5 space-y-3">
-      <div>
-        <label class="text-xs font-semibold text-coklat/80 block mb-1">Email</label>
-        <input id="login-email" required type="email" placeholder="admin@dawungkulon.id"
-               class="w-full border border-[#E7DEC9] rounded-lg px-4 py-2.5 text-sm focus:border-hijau outline-none">
-      </div>
-      <div>
-        <label class="text-xs font-semibold text-coklat/80 block mb-1">Kata Sandi</label>
-        <input id="login-password" required type="password" placeholder="••••••••"
-               class="w-full border border-[#E7DEC9] rounded-lg px-4 py-2.5 text-sm focus:border-hijau outline-none">
-      </div>
-      <p id="login-error" class="text-xs text-terakota hidden"></p>
-      <p class="text-[11px] text-coklat/50">Demo: <code class="bg-cream2 px-1 rounded">admin@dawungkulon.id</code> / <code class="bg-cream2 px-1 rounded">dawung123</code></p>
-      <div class="flex gap-2 pt-1">
-        <button type="button" onclick="closeModal('modal-login')" class="flex-1 border border-[#E7DEC9] rounded-full py-2.5 text-sm font-semibold text-coklat">Batal</button>
-        <button id="login-submit-btn" type="submit" class="flex-1 bg-hijau text-cream rounded-full py-2.5 text-sm font-semibold">Masuk</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- ===================== MODAL: PANEL ADMIN (dashboard CRUD) ===================== -->
-<div id="modal-admin" class="fixed inset-0 z-50 hidden items-center justify-center modal-backdrop px-3 py-6">
-  <div class="bg-cream rounded-xl2 w-full max-w-3xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden">
-
-    <div class="flex items-center justify-between px-5 md:px-6 py-4 border-b border-[#E7DEC9] bg-white">
-      <div>
-        <p class="text-[11px] font-bold uppercase tracking-wide text-terakota">Panel Admin</p>
-        <h3 class="font-display text-xl text-ink">Kelola Konten Dusun</h3>
-        <p id="admin-session-info" class="text-[11px] text-coklat/60 mt-0.5"></p>
-      </div>
-      <div class="flex items-center gap-2">
-        <button onclick="handleLogout()" class="text-xs font-semibold text-terakota px-3 py-1.5 rounded-full border border-terakota/30 hover:bg-terakota/10">Keluar</button>
-        <button onclick="closeModal('modal-admin')" aria-label="Tutup" class="w-9 h-9 rounded-full bg-cream2 hover:bg-[#E7DEC9] transition flex items-center justify-center text-lg">✕</button>
-      </div>
-    </div>
-
-    <div class="flex gap-2 px-5 md:px-6 pt-4 flex-wrap">
-      <button id="tab-btn-acara" onclick="switchAdminTab('acara')" class="admin-tab-btn px-4 py-2 rounded-full text-sm font-semibold bg-hijau text-cream">Kelola Acara</button>
-      <button id="tab-btn-hasilbumi" onclick="switchAdminTab('hasilbumi')" class="admin-tab-btn px-4 py-2 rounded-full text-sm font-semibold bg-cream2 text-coklat">Kelola Hasil Bumi</button>
-    </div>
-
-    <div class="flex-1 overflow-y-auto thin-scroll px-5 md:px-6 py-5 grid md:grid-cols-2 gap-6">
-
-      <!-- TAB ACARA -->
-      <div id="admin-tab-acara" class="admin-tab space-y-5">
-        <form onsubmit="handleAddAcara(event)" class="bg-white border border-[#EFE7D6] rounded-xl2 p-4 space-y-3">
-          <p class="text-sm font-bold text-ink">Formulir Acara</p>
-          <input id="acara-judul" required type="text" placeholder="Judul acara (contoh: Gotong Royong Bulanan)"
-                 class="w-full border border-[#E7DEC9] rounded-lg px-3 py-2 text-sm focus:border-hijau outline-none">
-          <input id="acara-tanggal" required type="text" placeholder="Jadwal (contoh: Setiap Minggu Pagi)"
-                 class="w-full border border-[#E7DEC9] rounded-lg px-3 py-2 text-sm focus:border-hijau outline-none">
-          <textarea id="acara-deskripsi" required rows="3" placeholder="Deskripsi singkat acara"
-                 class="w-full border border-[#E7DEC9] rounded-lg px-3 py-2 text-sm focus:border-hijau outline-none"></textarea>
-          <div>
-            <label class="text-xs text-coklat/70 block mb-1">Foto acara (opsional)</label>
-            <div id="acara-foto-wrapper" class="space-y-2">
-              <!-- Saat mode tambah baru: tampilkan input file biasa -->
-              <input id="acara-foto" type="file" accept="image/*" onchange="previewFotoAcara(event)" class="w-full text-xs">
-              <img id="acara-preview" class="hidden w-full h-32 object-cover rounded-lg border border-[#E7DEC9]">
-            </div>
-            <!-- Saat mode edit: tampilkan foto yang sudah tersimpan + tombol kelola -->
-            <div id="acara-foto-edit-mode" class="hidden space-y-2">
-              <div class="relative">
-                <img id="acara-foto-display" class="w-full h-32 object-cover rounded-lg border border-[#E7DEC9]">
-                <div class="absolute inset-0 rounded-lg bg-black/0 hover:bg-black/20 transition flex items-center justify-center gap-2">
-                  <button type="button" onclick="gantiAcara()" class="hidden group-hover:inline bg-hijau text-cream px-2 py-1 text-xs font-bold rounded">Ganti</button>
-                  <button type="button" onclick="hapusAcaraFoto()" class="hidden group-hover:inline bg-terakota text-cream px-2 py-1 text-xs font-bold rounded">Hapus</button>
-                </div>
-              </div>
-              <div class="flex gap-2">
-                <button type="button" onclick="gantiAcara()" class="flex-1 bg-hijau text-cream px-3 py-1.5 text-xs font-bold rounded">Ganti Foto</button>
-                <button type="button" onclick="hapusAcaraFoto()" class="flex-1 bg-terakota text-cream px-3 py-1.5 text-xs font-bold rounded">Hapus Foto</button>
-              </div>
-              <p class="text-[11px] text-coklat/60">💡 Klik "Ganti Foto" untuk memilih foto baru, atau "Hapus Foto" untuk menghapusnya.</p>
-            </div>
-            <!-- Input file tersembunyi untuk "Ganti Foto" -->
-            <input id="acara-foto-hidden" type="file" accept="image/*" onchange="previewFotoAcara(event)" class="hidden">
-          </div>
-          <div class="flex gap-2">
-            <button id="acara-submit-btn" type="submit" class="flex-1 bg-hijau text-cream rounded-full py-2.5 text-sm font-semibold">Simpan Acara</button>
-            <button id="acara-cancel-btn" type="button" onclick="batalEditAcara()" class="hidden px-4 rounded-full border border-[#E7DEC9] text-sm font-semibold text-coklat">Batal</button>
-          </div>
-        </form>
         <div>
-          <p class="text-sm font-bold text-ink mb-2">Acara Tersimpan</p>
-          <div id="admin-acara-list" class="space-y-2"></div>
+          <label for="nama" class="block text-sm text-coklat/90 mb-1 font-semibold">Nama Lengkap</label>
+          <input type="text" id="nama" name="nama" required placeholder="Tulis nama Anda"
+                 class="w-full px-4 py-3 bg-[#F9F7F3] border border-[#EFE7D6] rounded-xl focus:outline-none focus:border-terakota focus:ring-1 focus:ring-terakota transition">
         </div>
-      </div>
 
-      <!-- TAB HASIL BUMI -->
-      <div id="admin-tab-hasilbumi" class="admin-tab space-y-5 hidden">
-        <form onsubmit="handleAddHasilBumi(event)" class="bg-white border border-[#EFE7D6] rounded-xl2 p-4 space-y-3">
-          <p class="text-sm font-bold text-ink">Formulir Hasil Bumi / Produk</p>
-          <input id="produk-judul" required type="text" placeholder="Nama produk (contoh: Kopi Robusta Dawung)"
-                 class="w-full border border-[#E7DEC9] rounded-lg px-3 py-2 text-sm focus:border-hijau outline-none">
-          <input id="produk-pemilik" type="text" placeholder="Nama pemilik / kelompok tani (opsional)"
-                 class="w-full border border-[#E7DEC9] rounded-lg px-3 py-2 text-sm focus:border-hijau outline-none">
-          <textarea id="produk-deskripsi" required rows="3" placeholder="Deskripsi singkat produk"
-                 class="w-full border border-[#E7DEC9] rounded-lg px-3 py-2 text-sm focus:border-hijau outline-none"></textarea>
-          <div>
-            <label class="text-xs text-coklat/70 block mb-1">Foto produk (opsional)</label>
-            <div id="produk-foto-wrapper" class="space-y-2">
-              <!-- Saat mode tambah baru: tampilkan input file biasa -->
-              <input id="produk-foto" type="file" accept="image/*" onchange="previewFotoProduk(event)" class="w-full text-xs">
-              <img id="produk-preview" class="hidden w-full h-32 object-cover rounded-lg border border-[#E7DEC9]">
-            </div>
-            <!-- Saat mode edit: tampilkan foto yang sudah tersimpan + tombol kelola -->
-            <div id="produk-foto-edit-mode" class="hidden space-y-2">
-              <div class="relative">
-                <img id="produk-foto-display" class="w-full h-32 object-cover rounded-lg border border-[#E7DEC9]">
-                <div class="absolute inset-0 rounded-lg bg-black/0 hover:bg-black/20 transition flex items-center justify-center gap-2">
-                  <button type="button" onclick="gantiProduk()" class="hidden group-hover:inline bg-hijau text-cream px-2 py-1 text-xs font-bold rounded">Ganti</button>
-                  <button type="button" onclick="hapusProdukFoto()" class="hidden group-hover:inline bg-terakota text-cream px-2 py-1 text-xs font-bold rounded">Hapus</button>
-                </div>
-              </div>
-              <div class="flex gap-2">
-                <button type="button" onclick="gantiProduk()" class="flex-1 bg-hijau text-cream px-3 py-1.5 text-xs font-bold rounded">Ganti Foto</button>
-                <button type="button" onclick="hapusProdukFoto()" class="flex-1 bg-terakota text-cream px-3 py-1.5 text-xs font-bold rounded">Hapus Foto</button>
-              </div>
-              <p class="text-[11px] text-coklat/60">💡 Klik "Ganti Foto" untuk memilih foto baru, atau "Hapus Foto" untuk menghapusnya.</p>
-            </div>
-            <!-- Input file tersembunyi untuk "Ganti Foto" -->
-            <input id="produk-foto-hidden" type="file" accept="image/*" onchange="previewFotoProduk(event)" class="hidden">
-          </div>
-          <div class="flex gap-2">
-            <button id="produk-submit-btn" type="submit" class="flex-1 bg-terakota text-cream rounded-full py-2.5 text-sm font-semibold">Simpan Produk</button>
-            <button id="produk-cancel-btn" type="button" onclick="batalEditHasilBumi()" class="hidden px-4 rounded-full border border-[#E7DEC9] text-sm font-semibold text-coklat">Batal</button>
-          </div>
-        </form>
         <div>
-          <p class="text-sm font-bold text-ink mb-2">Produk Tersimpan</p>
-          <div id="admin-hasilbumi-list" class="space-y-2"></div>
+          <label for="kontak" class="block text-sm text-coklat/90 mb-1 font-semibold">Email atau No. WhatsApp</label>
+          <input type="text" id="kontak" name="kontak" required placeholder="Agar kami bisa membalas pesan Anda"
+                 class="w-full px-4 py-3 bg-[#F9F7F3] border border-[#EFE7D6] rounded-xl focus:outline-none focus:border-terakota focus:ring-1 focus:ring-terakota transition">
         </div>
-      </div>
+
+        <div>
+          <label for="pesan" class="block text-sm text-coklat/90 mb-1 font-semibold">Isi Pesan</label>
+          <textarea id="pesan" name="pesan" rows="4" required placeholder="Tulis pesan atau masukan Anda di sini..."
+                    class="w-full px-4 py-3 bg-[#F9F7F3] border border-[#EFE7D6] rounded-xl focus:outline-none focus:border-terakota focus:ring-1 focus:ring-terakota transition"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-terakota text-white font-semibold py-3.5 rounded-xl hover:bg-terakota/90 transition shadow-sm">
+          Kirim Pesan Sekarang
+        </button>
+      </form>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- ===================== LIBRARY & SCRIPT EKSTERNAL =====================
-     Supabase JS Client (CDN UMD build) — dipakai script.js untuk Auth,
-     CRUD (tabel acara & hasil_bumi), dan Storage (unggah foto ke URL publik).
-     Formspree untuk form kontak tidak butuh library, cukup fetch() biasa
-     ke endpoint Formspree (lihat script.js bagian handleKontakSubmit). -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="script.js" defer></script>
+</main>
 
-<!-- KUMPULAN IKON (Sembunyikan elemen ini) -->
-<svg style="display: none;">
-  <symbol id="icon-wa" viewBox="0 0 24 24">
-    <!-- Path WhatsApp yang panjang disembunyikan di sini -->
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-  </symbol>
-  
-  <symbol id="icon-ig" viewBox="0 0 24 24">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" />
-  </symbol>
-
-  <symbol id="icon-fb" viewBox="0 0 24 24">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
-  </symbol>
-
-  <symbol id="icon-email" viewBox="0 0 24 24">
-    <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
-    <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
-  </symbol>
-</svg>
-
-<!-- ===================== 6. FOOTER ===================== -->
+  <!-- ===================== 6. FOOTER ===================== -->
   <footer class="bg-ink text-cream/80 py-8 md:py-12 mt-10 md:mt-16 rounded-t-3xl md:rounded-t-[3rem] border-t-[6px] border-terakota">
     <div class="max-w-6xl mx-auto px-6 md:px-10 flex flex-col md:flex-row justify-between items-center gap-6">
       
-      <!-- Info Kiri -->
       <div class="text-center md:text-left">
         <div class="flex items-center justify-center md:justify-start gap-3 mb-3">
           <span class="w-8 h-8 rounded-full bg-hijau text-cream flex items-center justify-center font-display text-sm">DK</span>
@@ -531,19 +344,9 @@
         <p class="text-sm opacity-80">Desa Candi, Kec. Pringkuku, Kabupaten Pacitan, Jawa Timur</p>
       </div>
 
-      <!-- Copyright & Link Admin -->
       <div class="flex flex-col items-center md:items-end gap-3 text-sm">
-        <p>© 2026 Dawung Kulon.</p>
-        
-        <!-- Tombol Login Admin (Khusus Pengurus) -->
-        <!-- Pastikan fungsi onclick ini sesuai dengan nama fungsi di script.js Anda -->
-        <button onclick="document.getElementById('modal-login').classList.remove('hidden'); document.getElementById('modal-login').classList.add('flex');" 
-                class="text-xs text-cream/40 hover:text-terakota transition inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:bg-white/5">
-          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
-          </svg>
-          Masuk Panel Pengurus
-        </button>
+        <p>© 2026 Karang Taruna Dawung Kulon.</p>
+        <p class="text-xs text-cream/40">Dikelola secara independen oleh warga.</p>
       </div>
 
     </div>
