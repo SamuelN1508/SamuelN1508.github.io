@@ -720,35 +720,30 @@ document.addEventListener('DOMContentLoaded', function() {
   const formKontak = document.getElementById('form-kontak');
   const tombolKirim = document.getElementById('tombol-kirim');
 
-  // Memastikan form dan tombol ditemukan di halaman ini
   if (formKontak && tombolKirim) {
       
     formKontak.addEventListener('submit', function(e) {
-      e.preventDefault(); // Mencegah halaman pindah/refresh
+      e.preventDefault(); 
       
-      // Ubah teks tombol saat loading
       const teksAsliTombol = tombolKirim.innerText;
       tombolKirim.innerText = "Mengirim pesan...";
       tombolKirim.disabled = true;
 
+      // Mengambil data dari form
       const formData = new FormData(formKontak);
-      const object = Object.fromEntries(formData);
-      const json = JSON.stringify(object);
 
-      // Mengirim data ke Web3Forms di latar belakang
-      fetch('https://api.web3forms.com/submit', {
+      // MENGIRIM KE FORMSPREE
+      // Ganti KODE_UNIK_ANDA dengan kode milik Anda
+      fetch('https://formspree.io/f/05903cf5-865f-44f1-9b93-98a8e0d8b560', {
         method: 'POST',
+        body: formData,
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: json
+            'Accept': 'application/json'
+        }
       })
-      .then(async (response) => {
-        let jsonResponse = await response.json();
-        if (response.status == 200) {
-          // Munculkan notifikasi sukses
-          alert("Terima kasih! Pesan Anda berhasil dikirim.");
+      .then(response => {
+        if (response.ok) {
+          alert("Terima kasih! Pesan Anda berhasil dikirim ke pengurus dusun.");
           
           // Membersihkan isi form
           formKontak.reset(); 
@@ -761,7 +756,7 @@ document.addEventListener('DOMContentLoaded', function() {
         alert("Maaf, sistem sedang gangguan.");
       })
       .finally(() => {
-        // Kembalikan tombol seperti semula setelah selesai
+        // Kembalikan tombol
         tombolKirim.innerText = teksAsliTombol;
         tombolKirim.disabled = false;
       });
