@@ -310,18 +310,15 @@
       </a>
     </div>
 
-    <!-- ===================== BAGIAN KIRIM PESAN ===================== -->
+   <!-- ===================== BAGIAN KIRIM PESAN ===================== -->
 <div class="max-w-2xl mt-12 bg-white p-6 md:p-8 border border-[#EFE7D6] rounded-2xl shadow-sm">
   <h3 class="font-display text-2xl text-ink mb-2">Kirim Pesan</h3>
   <p class="text-sm text-coklat/80 mb-6">Punya pertanyaan atau masukan? Jangan ragu untuk menghubungi pengurus dusun melalui formulir di bawah ini.</p>
   
-  <!-- Pastikan action mengarah ke Web3Forms -->
-  <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+  <form id="form-kontak" class="space-y-5">
     
-    <!-- ⚠️ VALUE DI BAWAH INI ACCESS KEY DARI EMAIL ANDA -->
-    <input type="hidden" name="access_key" value="05903cf5-865f-44f1-9b93-98a8e0d8b560">
-    
-    <!-- Subjek Email (Agar saat masuk ke email, Anda tahu ini dari website) -->
+    <!-- ⚠️ GANTI VALUE DI BAWAH INI DENGAN ACCESS KEY DARI EMAIL ANDA -->
+    <input type="hidden" name="access_key" value="MASUKKAN_ACCESS_KEY_ANDA_DI_SINI">
     <input type="hidden" name="subject" value="Pesan Baru dari Website Dusun Dawung Kulon">
 
     <!-- Input Nama -->
@@ -345,23 +342,17 @@
                 class="w-full px-4 py-3 bg-[#F9F7F3] border border-[#EFE7D6] rounded-xl focus:outline-none focus:border-terakota focus:ring-1 focus:ring-terakota transition"></textarea>
     </div>
 
-    <!-- Anti-Spam bawaan Web3Forms (Penting agar tidak dikirimi pesan oleh robot) -->
     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-    <!-- Tombol Kirim -->
-    <button type="submit" class="w-full bg-terakota text-white font-semibold py-3.5 rounded-xl hover:bg-terakota/90 transition shadow-sm">
+    <button type="submit" id="tombol-kirim" class="w-full bg-terakota text-white font-semibold py-3.5 rounded-xl hover:bg-terakota/90 transition shadow-sm">
       Kirim Pesan Sekarang
     </button>
-    
   </form>
 </div>
 
-<footer class="hidden md:block border-t border-[#EFE7D6] px-6 py-8 mt-6">
-  <div class="max-w-6xl mx-auto flex items-center justify-between text-sm text-coklat/70">
-    <!-- Akses Panel Admin: klik teks di bawah ini untuk membuka -->
-    <p id="pemicu-rahasia-admin" class="select-none cursor-default" onclick="ketukRahasiaAdmin()">🌾 Dusun Dawung Kulon: Tenang, Hijau, Asri dan Bersatu</p>
-  </div>
-</footer>
+<!-- Letakkan pemanggil JavaScript ini di bagian bawah HTML (sebelum </body>) -->
+<script src="script.js"></script>
+  </section>
 
 <!-- ===================== MODAL: LOGIN ADMIN (EMAIL) ===================== -->
 <div id="modal-login" class="fixed inset-0 z-50 hidden items-center justify-center modal-backdrop px-3 py-6">

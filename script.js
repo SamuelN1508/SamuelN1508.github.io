@@ -713,51 +713,59 @@ async function hapusHasilBumi(id) {
   showToast('Produk dihapus.');
 }
 
-/* ---------- Kontak: kirim pesan lewat Formspree ----------
-   Catatan: form aslinya tidak punya atribut id/name pada input & textarea,
-   jadi diambil lewat querySelector berdasarkan urutan elemen di dalam form
-   (hanya ada 1 input teks & 1 textarea), tanpa perlu mengubah index.html. */
-async function handleKontakSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('button[type="submit"]');
-  const namaInput = form.querySelector('input[type="text"]');
-  const pesanInput = form.querySelector('textarea');
+/* ---------- Kontak: kirim pesan lewat Web3Forms ---------- */
 
-  const nama = namaInput.value.trim();
-  const pesan = pesanInput.value.trim();
-  const teksAsliBtn = btn.textContent;
+document.addEventListener('DOMContentLoaded', function() {
+    
+  const formKontak = document.getElementById('form-kontak');
+  const tombolKirim = document.getElementById('tombol-kirim');
 
-  btn.disabled = true; btn.textContent = 'Mengirim...';
+  // Memastikan form dan tombol ditemukan di halaman ini
+  if (formKontak && tombolKirim) {
+      
+    formKontak.addEventListener('submit', function(e) {
+      e.preventDefault(); // Mencegah halaman pindah/refresh
+      
+      // Ubah teks tombol saat loading
+      const teksAsliTombol = tombolKirim.innerText;
+      tombolKirim.innerText = "Mengirim pesan...";
+      tombolKirim.disabled = true;
 
-  try {
-    const res = await fetch(FORMSPREE_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ nama, pesan })
+      const formData = new FormData(formKontak);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      // Mengirim data ke Web3Forms di latar belakang
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      })
+      .then(async (response) => {
+        let jsonResponse = await response.json();
+        if (response.status == 200) {
+          // Munculkan notifikasi sukses
+          alert("Terima kasih! Pesan Anda berhasil dikirim.");
+          
+          // Membersihkan isi form
+          formKontak.reset(); 
+        } else {
+          alert("Maaf, terjadi kesalahan. Silakan coba lagi.");
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        alert("Maaf, sistem sedang gangguan.");
+      })
+      .finally(() => {
+        // Kembalikan tombol seperti semula setelah selesai
+        tombolKirim.innerText = teksAsliTombol;
+        tombolKirim.disabled = false;
+      });
     });
-    if (res.ok) {
-      showToast('Pesan terkirim! Pengurus akan segera membalas.');
-      form.reset();
-    } else {
-      showToast('Gagal mengirim pesan. Coba lagi nanti.');
-    }
-  } catch (err) {
-    console.error('Gagal mengirim ke Formspree:', err);
-    showToast('Gagal mengirim pesan. Periksa koneksi internet Anda.');
+    
   }
-
-  btn.disabled = false; btn.textContent = teksAsliBtn;
-}
-
-/* ============================================================
-   INISIALISASI SAAT HALAMAN DIMUAT
-============================================================ */
-(async function init() {
-  const { data: { session } } = await supabaseClient.auth.getSession(); // cek sesi login tersimpan
-  _sesiAktif = session;
-
-  await renderAcara();
-  await renderHasilBumi();
-  cekAksesAdminLewatURL(); // cek apakah dibuka lewat tautan rahasia #admin-dusun
-})();
+});
