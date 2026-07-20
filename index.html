@@ -518,5 +518,36 @@
   </symbol>
 </svg>
 
+<!-- ===================== 6. FOOTER ===================== -->
+  <footer class="bg-ink text-cream/80 py-8 md:py-12 mt-10 md:mt-16 rounded-t-3xl md:rounded-t-[3rem] border-t-[6px] border-terakota">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 flex flex-col md:flex-row justify-between items-center gap-6">
+      
+      <!-- Info Kiri -->
+      <div class="text-center md:text-left">
+        <div class="flex items-center justify-center md:justify-start gap-3 mb-3">
+          <span class="w-8 h-8 rounded-full bg-hijau text-cream flex items-center justify-center font-display text-sm">DK</span>
+          <span class="font-display text-2xl text-cream">Dusun Dawung Kulon</span>
+        </div>
+        <p class="text-sm opacity-80">Desa Candi, Kec. Pringkuku, Kabupaten Pacitan, Jawa Timur</p>
+      </div>
+
+      <!-- Copyright & Link Admin -->
+      <div class="flex flex-col items-center md:items-end gap-3 text-sm">
+        <p>© 2026 Dawung Kulon.</p>
+        
+        <!-- Tombol Login Admin (Khusus Pengurus) -->
+        <!-- Pastikan fungsi onclick ini sesuai dengan nama fungsi di script.js Anda -->
+        <button onclick="document.getElementById('modal-login').classList.remove('hidden'); document.getElementById('modal-login').classList.add('flex');" 
+                class="text-xs text-cream/40 hover:text-terakota transition inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:bg-white/5">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+          </svg>
+          Masuk Panel Pengurus
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
 </body>
 </html>
