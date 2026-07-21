@@ -18,7 +18,7 @@
    Karena file ini digabung jadi SATU script.js, urutan definisi tidak masalah:
    fungsi-fungsi di Bagian 1 baru benar-benar dijalankan belakangan (saat user
    klik tombol / saat init() di Bagian 2 memanggilnya), jadi `DB` dan `Auth`
-   sudah pasti terdefinisi duluan pada saat itu.
+   sudah pasti terdefinisi duluan pada saat itu.S
 ================================================================================= */
 
 /* ============================================================
@@ -464,9 +464,7 @@ async function hapusFotoDariUrl(url) {
   }
 }
 
-/* ============================================================
-   LAPISAN DATABASE — CRUD tabel `acara` & `hasil_bumi` via Supabase
-============================================================ */
+/* LAPISAN DATABASE — CRUD tabel `acara` & `hasil_bumi` via Supabase */
 const DB = {
   acara: {
     async getAll() {
@@ -765,4 +763,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
   }
+  
+});
+
+/* INISIALISASI SAAT HALAMAN PERTAMA KALI DIMUAT */
+document.addEventListener('DOMContentLoaded', function() {
+  renderAcara();
+  renderHasilBumi();
+  cekAksesAdminLewatURL();
 });
