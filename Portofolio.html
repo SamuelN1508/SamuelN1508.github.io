@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Samuel Natanael - Project Portfolio</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #1d1d1f;
+        }
+
+        .page {
+            width: 297mm;
+            height: 210mm;
+            padding: 25mm 20mm 15mm 20mm;
+            position: relative;
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* COVER PAGE STYLES */
+        .cover-content {
+            margin-top: 40px;
+        }
+
+        .cover-author {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 0px;
+        }
+
+        .cover-title {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+        }
+
+        .cover-subtitle {
+            font-size: 18px;
+            color: #515154;
+            font-weight: 400;
+        }
+
+        /* PROJECT PAGE STYLES */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 25px;
+            height: 84%;
+        }
+
+        .left-col {
+            font-size: 10.5px;
+            line-height: 1.35;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .field-group {
+            margin-bottom: 2px;
+        }
+
+        .field-label {
+            font-weight: 700;
+            font-size: 10.5px;
+            color: #000;
+            margin-bottom: 1px;
+        }
+
+        .project-main-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+            line-height: 1.1;
+        }
+
+        ul.role-list {
+            margin: 2px 0;
+            padding-left: 14px;
+        }
+
+        .links-section a {
+            color: #0066cc;
+            text-decoration: underline;
+            word-break: break-all;
+        }
+
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .visual-container {
+            width: 100%;
+            height: 310px;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            background-color: #fbfbfd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-placeholder {
+            color: #86868b;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            border-top: 1px solid #e5e5e5;
+            padding-top: 10px;
+            font-size: 10.5px;
+        }
+
+        .tools-grid ul {
+            margin: 3px 0 0 0;
+            padding-left: 14px;
+        }
+
+        /* FOOTER STYLES */
+        .footer {
+            border-top: 1px solid #d2d2d7;
+            padding-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            font-size: 10px;
+            color: #1d1d1f;
+        }
+
+        .footer-left {
+            line-height: 1.3;
+        }
+
+        .footer-right {
+            text-align: right;
+            line-height: 1.2;
+        }
+
+        .page-num {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- COVER PAGE -->
+    <div class="page">
+        <div class="cover-content">
+            <div class="cover-author">Samuel Natanael’s</div>
+            <h1 class="cover-title">PROJECT PORTOFOLIO</h1>
+            <div class="cover-subtitle">Designed for submission to the Apple Developer Academy Cohort 2026</div>
+        </div>
+        <div class="footer">
+            <div class="footer-left">
+                <strong>Samuel Natanael</strong><br>
+                Universitas Kristen Duta Wacana 3<sup>rd</sup> Year Informatics Undergraduate Student<br>
+                📷 @samuelnatanael08 | 🔗 Samuel Natanael
+            </div>
+            <div class="footer-right">
+                <div class="page-num">Cover Page</div>
+                Designed for submission to the<br>Apple Developer Academy Cohort 2026
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT 1 OF 5 -->
+    <div class="page">
+        <div class="project-grid">
+            <div class="left-col">
+                <div class="field-group">
+                    <div class="field-label">Project Title</div>
+                    <div class="project-main-title">FLAMEGUARD</div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Made For</div>
+                    Academic Game Development Project
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Year Accomplished</div>
+                    2025
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Role / Position</div>
+                    <ul class="role-list">
+                        <li>Project Manager</li>
+                        <li>Game Designer</li>
+                    </ul>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Project Description</div>
+                    Flameguard is an engaging action-strategy game where players take on the role of a dedicated
+                    firefighter extinguishing mysterious fires, rescuing victims, and managing critical water/oxygen
+                    resources in Unity 6.
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Project Impact</div>
+                    Successfully deployed and published on Itch.io for public access, providing the team with end-to-end
+                    game development experience.
+                </div>
+                <div class="field-group">
+                    <div class="field-label">What I Learn</div>
+                    Learned team management, progress tracking, balancing action-strategy mechanics, and narrative
+                    storytelling for interactive media.
+                </div>
+                <div class="field-group links-section">
+                    <div class="field-label">Game Link (Itch.io)</div>
+                    <a href="https://rainiefch.itch.io/flameguard">https://rainiefch.itch.io/flameguard</a>
+                </div>
+            </div>
+            <div class="right-col">
+                <div class="visual-container">
+                    <div class="visual-placeholder">[ Insert Gameplay / UI Screenshot Mockup Here ]</div>
+                </div>
+                <div class="tools-grid">
+                    <div>
+                        <div class="field-label">Main Tools I've Used to Develop:</div>
+                        <ul>
+                            <li>Unity 6</li>
+                            <li>Blender (3D Modeling)</li>
+                            <li>IbisPaint X (2D Art)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="field-label">Programming Languages Used:</div>
+                        <ul>
+                            <li>C# (Game Logic & Mechanics)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-left">
+                <strong>Samuel Natanael</strong><br>
+                Universitas Kristen Duta Wacana 3<sup>rd</sup> Year Informatics Undergraduate Student<br>
+                📷 @samuelnatanael08 | 🔗 Samuel Natanael
+            </div>
+            <div class="footer-right">
+                <div class="page-num">Project 1 of 5</div>
+                Designed for submission to the<br>Apple Developer Academy Cohort 2026
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT 2 OF 5 -->
+    <div class="page">
+        <div class="project-grid">
+            <div class="left-col">
+                <div class="field-group">
+                    <div class="field-label">Project Title</div>
+                    <div class="project-main-title">Job Finder AI</div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Made For</div>
+                    Artificial Intelligence Course Project
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Year Accomplished</div>
+                    2025
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Role / Position</div>
+                    <ul class="role-list">
+                        <li>Project Manager</li>
+                        <li>AI Developer / Programmer</li>
+                    </ul>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Project Description</div>
+                    An AI recommendation system utilizing knowledge representation and Forward Chaining algorithms to
+                    match student profiles (grades, skills, interests) with tailored career opportunities.
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Project Impact</div>
+                    Validated a rule-based proof-of-concept system capable of providing personalized career
+                    recommendations with explicit logical reasoning.
+                </div>
+                <div class="field-group">
+                    <div class="field-label">What I Learn</div>
+                    Mastered Forward Chaining, JSON data structuring for knowledge bases, Python rule-engine
+                    implementation, and cross-functional team leadership.
+                </div>
+                <div class="field-group links-section">
+                    <div class="field-label">Github & Drive Links</div>
+                    <a href="https://github.com/SamuelN1508/New_Repo-JobFinder-AI.git">Github Repository</a><br>
+                    <a href="https://drive.google.com/drive/folders/13ACeYE3gNgRVpTnwaSxz5gO_RB5DW96d">Demo &
+                        Promotional Video</a>
+                </div>
+            </div>
+            <div class="right-col">
+                <div class="visual-container">
+                    <div class="visual-placeholder">[ Insert Terminal / Code Architecture Screenshot Here ]</div>
+                </div>
+                <div class="tools-grid">
+                    <div>
+                        <div class="field-label">Main Tools I've Used to Develop:</div>
+                        <ul>
+                            <li>JSON (Knowledge Representation)</li>
+                            <li>Forward Chaining Rules</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="field-label">Programming Languages Used:</div>
+                        <ul>
+                            <li>Python (Inference Engine & Data Processing)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-left">
+                <strong>Samuel Natanael</strong><br>
+                Universitas Kristen Duta Wacana 3<sup>rd</sup> Year Informatics Undergraduate Student<br>
+                📷 @samuelnatanael08 | 🔗 Samuel Natanael
+            </div>
+            <div class="footer-right">
+                <div class="page-num">Project 2 of 5</div>
+                Designed for submission to the<br>Apple Developer Academy Cohort 2026
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT 3 OF 5 -->
+    <div class="page">
+        <div class="project-grid">
+            <div class="left-col">
+                <div class="field-group">
+                    <div class="field-label">Project Title</div>
+                    <div class="project-main-title">Radial Arm Maze Automation</div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Made For</div>
+                    Datathon Competition by RISTEK Fasilkom UI
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Year Accomplished</div>
+                    2025
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Role / Position</div>
+                    <ul class="role-list">
+                        <li>Project Manager</li>
+                    </ul>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Project Description</div>
+                    Automated neuroscience behavioral tracking system combining traditional computer vision and Random
+                    Forest classifiers to track subjects without using deep learning/YOLO models.
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Project Impact</div>
+                    Solved real-time subject tracking under strict technical constraints, eliminating manual video
+                    observation errors in laboratory settings.
+                </div>
+                <div class="field-group">
+                    <div class="field-label">What I Learn</div>
+                    Gained experience in noise reduction, grid motion detection pipelines, and guiding technical feature
+                    engineering under competitive rules.
+                </div>
+                <div class="field-group links-section">
+                    <div class="field-label">Github Link</div>
+                    <a href="https://github.com/nicholasteslaaa/Radial-Arm-Maze-Automation/">Github Repository</a>
+                </div>
+            </div>
+            <div class="right-col">
+                <div class="visual-container">
+                    <div class="visual-placeholder">[ Insert OpenCV Grid Detection Screenshots Here ]</div>
+                </div>
+                <div class="tools-grid">
+                    <div>
+                        <div class="field-label">Main Tools I've Used to Develop:</div>
+                        <ul>
+                            <li>OpenCV (Computer Vision)</li>
+                            <li>Random Forest Classifier</li>
+                            <li>Grid Motion Detection</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="field-label">Programming Languages Used:</div>
+                        <ul>
+                            <li>Python (Data Pipeline & ML)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-left">
+                <strong>Samuel Natanael</strong><br>
+                Universitas Kristen Duta Wacana 3<sup>rd</sup> Year Informatics Undergraduate Student<br>
+                📷 @samuelnatanael08 | 🔗 Samuel Natanael
+            </div>
+            <div class="footer-right">
+                <div class="page-num">Project 3 of 5</div>
+                Designed for submission to the<br>Apple Developer Academy Cohort 2026
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT 4 OF 5 -->
+    <div class="page">
+        <div class="project-grid">
+            <div class="left-col">
+                <div class="field-group">
+                    <div class="field-label">Project Title</div>
+                    <div class="project-main-title">Desktop Cinema Ticket Booking</div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Made For</div>
+                    Desktop Programming Course Project
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Year Accomplished</div>
+                    2026
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Role / Position</div>
+                    <ul class="role-list">
+                        <li>Team Leader</li>
+                        <li>Programmer</li>
+                    </ul>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Project Description</div>
+                    A comprehensive desktop ticketing system featuring interactive seat mapping, real-time seat locking
+                    to prevent double-booking, and automated email e-ticket generation.
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Project Impact</div>
+                    Digitized manual booking workflows, eliminated seat collision errors, and provided admins with
+                    real-time sales reporting dashboards.
+                </div>
+                <div class="field-group">
+                    <div class="field-label">What I Learn</div>
+                    Mastered relational database schema architecture (users, movies, schedules, seats), transactional
+                    locking logic, and desktop UI/UX development.
+                </div>
+                <div class="field-group links-section">
+                    <div class="field-label">Github Link</div>
+                    <a href="https://github.com/SamuelN1508/Project_Pemrograman_Desktop_Bioskop.git">Github
+                        Repository</a>
+                </div>
+            </div>
+            <div class="right-col">
+                <div class="visual-container">
+                    <div class="visual-placeholder">[ Insert Desktop App / E-Ticket UI Screenshot Here ]</div>
+                </div>
+                <div class="tools-grid">
+                    <div>
+                        <div class="field-label">Main Tools I've Used to Develop:</div>
+                        <ul>
+                            <li>MySQL / SQL Server</li>
+                            <li>Desktop IDE</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="field-label">Programming Languages Used:</div>
+                        <ul>
+                            <li>Visual Basic .NET (App Logic)</li>
+                            <li>SQL (Database Architecture)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-left">
+                <strong>Samuel Natanael</strong><br>
+                Universitas Kristen Duta Wacana 3<sup>rd</sup> Year Informatics Undergraduate Student<br>
+                📷 @samuelnatanael08 | 🔗 Samuel Natanael
+            </div>
+            <div class="footer-right">
+                <div class="page-num">Project 4 of 5</div>
+                Designed for submission to the<br>Apple Developer Academy Cohort 2026
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT 5 OF 5 -->
+    <div class="page">
+        <div class="project-grid">
+            <div class="left-col">
+                <div class="field-group">
+                    <div class="field-label">Project Title</div>
+                    <div class="project-main-title">Data Warehouse Sales Analytics</div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Made For</div>
+                    Data Warehouse Final Project
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Year Accomplished</div>
+                    2026
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Role / Position</div>
+                    <ul class="role-list">
+                        <li>Project Manager</li>
+                        <li>Data Warehouse Developer</li>
+                    </ul>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Project Description</div>
+                    End-to-end Data Warehouse solution built on dimensional modeling (Star Schema) and BPMN-ETL
+                    pipeline, visualized via Metabase for strategic sales insights.
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Project Impact</div>
+                    Centralized fragmented operational data into an analytical platform enabling executive YoY revenue
+                    comparisons and regional productivity reports.
+                </div>
+                <div class="field-group">
+                    <div class="field-label">What I Learn</div>
+                    Learned star schema design, BPMN-ETL workflow modeling, Metabase BI visualization, and translating
+                    business KPIs into technical data models.
+                </div>
+                <div class="field-group links-section">
+                    <div class="field-label">Drive Link</div>
+                    <a href="https://drive.google.com/drive/folders/1UM_sTxDV59aTJA9XgpsnyF8D_9B6Ijrx">Project
+                        Deliverables & BI Dashboards</a>
+                </div>
+            </div>
+            <div class="right-col">
+                <div class="visual-container">
+                    <div class="visual-placeholder">[ Insert Metabase BI Dashboard Screenshots Here ]</div>
+                </div>
+                <div class="tools-grid">
+                    <div>
+                        <div class="field-label">Main Tools I've Used to Develop:</div>
+                        <ul>
+                            <li>BPMN-ETL & Metabase</li>
+                            <li>Dimensional Modeling (Star Schema)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="field-label">Programming Languages Used:</div>
+                        <ul>
+                            <li>SQL (ETL & Data Modeling)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-left">
+                <strong>Samuel Natanael</strong><br>
+                Universitas Kristen Duta Wacana 3<sup>rd</sup> Year Informatics Undergraduate Student<br>
+                📷 @samuelnatanael08 | 🔗 Samuel Natanael
+            </div>
+            <div class="footer-right">
+                <div class="page-num">Project 5 of 5</div>
+                Designed for submission to the<br>Apple Developer Academy Cohort 2026
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
