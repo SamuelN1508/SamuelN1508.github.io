@@ -1,9 +1,31 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <title>CV - Samuel Natanael</title>
     <style>
+        .navbar {
+            background-color: #1d1d1f;
+            padding: 14px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .navbar a:hover {
+            color: #2997ff;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             line-height: 1.4;
@@ -12,17 +34,20 @@
             max-width: 800px;
             padding: 0 20px;
         }
+
         h1 {
             font-size: 24px;
             margin-bottom: 2px;
             text-transform: uppercase;
         }
+
         .subtitle {
             font-size: 14px;
             font-weight: bold;
             color: #444;
             margin-bottom: 8px;
         }
+
         .contact {
             font-size: 12px;
             color: #555;
@@ -30,6 +55,7 @@
             border-bottom: 2px solid #333;
             padding-bottom: 8px;
         }
+
         h2 {
             font-size: 14px;
             text-transform: uppercase;
@@ -39,37 +65,47 @@
             margin-bottom: 8px;
             letter-spacing: 1px;
         }
+
         .item {
             margin-bottom: 10px;
         }
+
         .item-header {
             display: flex;
             justify-content: space-between;
             font-weight: bold;
             font-size: 13px;
         }
+
         .item-sub {
             font-style: italic;
             font-size: 12px;
             color: #555;
             margin-bottom: 4px;
         }
+
         ul {
             margin: 3px 0 8px 18px;
             padding: 0;
             font-size: 12px;
         }
+
         li {
             margin-bottom: 3px;
         }
+
         .skills-list p {
             font-size: 12px;
             margin: 3px 0;
         }
     </style>
 </head>
-<body>
 
+<body>
+    <nav class="navbar">
+        <a href="index.html">Project Portfolio</a>
+        <a href="cv.html">Curriculum Vitae</a>
+    </nav>
     <h1>Samuel Natanael</h1>
     <div class="subtitle">Informatics Student | AI & Database Engineering</div>
     <div class="contact">
@@ -86,7 +122,8 @@
         <div class="item-sub">IT CENTER - Universitas Kristen Duta Wacana (UKDW)</div>
         <ul>
             <li>Provided IT and computer services to support academic community activities across the university.</li>
-            <li>Assisted in developing the unit into a center for technological advancement and computer services at UKDW.</li>
+            <li>Assisted in developing the unit into a center for technological advancement and computer services at
+                UKDW.</li>
         </ul>
     </div>
 
@@ -97,8 +134,11 @@
         </div>
         <div class="item-sub">Universitas Kristen Duta Wacana (UKDW)</div>
         <ul>
-            <li>Facilitated laboratory and hands-on teaching sessions for 4 core courses: <b>Web Programming</b>, <b>Object-Oriented Software Engineering</b>, <b>Data Structures</b>, and <b>Database Management Systems</b>.</li>
-            <li>Guided students in database design, SQL optimization (MySQL), Java/Python development, and code debugging.</li>
+            <li>Facilitated laboratory and hands-on teaching sessions for 4 core courses: <b>Web Programming</b>,
+                <b>Object-Oriented Software Engineering</b>, <b>Data Structures</b>, and <b>Database Management
+                    Systems</b>.</li>
+            <li>Guided students in database design, SQL optimization (MySQL), Java/Python development, and code
+                debugging.</li>
         </ul>
     </div>
 
@@ -109,7 +149,8 @@
         </div>
         <div class="item-sub">BEM FTI UKDW</div>
         <ul>
-            <li>Conducted academic tutoring sessions for <b>Engineering Mathematics</b>, <b>Algorithms and Programming</b>, and <b>Discrete Mathematics</b>.</li>
+            <li>Conducted academic tutoring sessions for <b>Engineering Mathematics</b>, <b>Algorithms and
+                    Programming</b>, and <b>Discrete Mathematics</b>.</li>
             <li>Achieved a <b>90% student satisfaction rate</b> for teaching delivery based on feedback surveys.</li>
             <li>Maintained a <b>100% pass rate</b> for regular attendees, with participants earning A or A- grades.</li>
         </ul>
@@ -134,7 +175,8 @@
         </div>
         <div class="item-sub">BEM FTI UKDW</div>
         <ul>
-            <li>Managed financial planning, budgeting, and resource allocation for high-profile events, including an <b>NVIDIA Seminar (1,000+ attendees)</b> and the <b>Informatics Anniversary Awards</b>.</li>
+            <li>Managed financial planning, budgeting, and resource allocation for high-profile events, including an
+                <b>NVIDIA Seminar (1,000+ attendees)</b> and the <b>Informatics Anniversary Awards</b>.</li>
             <li>Led social impact initiatives and community engagement programs across the faculty.</li>
         </ul>
     </div>
@@ -146,7 +188,8 @@
         </div>
         <div class="item-sub">Duta Wacana Christian University</div>
         <ul>
-            <li><b>Six-TI (Co-Leader & Speaker):</b> Spearheaded workshops on basic coding and computer skills for 28 participants, achieving 100% positive satisfaction through interactive teaching.</li>
+            <li><b>Six-TI (Co-Leader & Speaker):</b> Spearheaded workshops on basic coding and computer skills for 28
+                participants, achieving 100% positive satisfaction through interactive teaching.</li>
             <li><b>Informatics Anniversary Awards:</b> Organized event logistics and technology seminar sessions.</li>
         </ul>
     </div>
@@ -162,18 +205,25 @@
 
     <h2>Projects</h2>
     <ul>
-        <li><b>Data Warehouse Sales Analytics & BI Dashboard:</b> Designed and implemented a data warehouse solution and analytical dashboard using <i>MongoDB, SQL, Microsoft Excel</i> to visualize sales performance and business intelligence metrics.</li>
-        <li><b>JobFinder AI:</b> Developed an AI-driven job searching tool in <i>Python</i> designed to match candidate skills with relevant job opportunities.</li>
-        <li><b>JobFinder Web:</b> Built a web-based platform for job listings, user authentication, and application management using <i>HTML, JavaScript, PHP, CSS</i>.</li>
-        <li><b>To Do List Application:</b> Created a desktop task management application with a graphical user interface using <i>Java, JavaFX</i>.</li>
-        <li><b>Public Speaking & Guest Speaker:</b> Delivered a presentation on the risks, mechanics, and mitigation strategies of deepfake technology for the <i>“Deepfake: Tool for Cybercrime” Webinar</i>.</li>
+        <li><b>Data Warehouse Sales Analytics & BI Dashboard:</b> Designed and implemented a data warehouse solution and
+            analytical dashboard using <i>MongoDB, SQL, Microsoft Excel</i> to visualize sales performance and business
+            intelligence metrics.</li>
+        <li><b>JobFinder AI:</b> Developed an AI-driven job searching tool in <i>Python</i> designed to match candidate
+            skills with relevant job opportunities.</li>
+        <li><b>JobFinder Web:</b> Built a web-based platform for job listings, user authentication, and application
+            management using <i>HTML, JavaScript, PHP, CSS</i>.</li>
+        <li><b>To Do List Application:</b> Created a desktop task management application with a graphical user interface
+            using <i>Java, JavaFX</i>.</li>
+        <li><b>Public Speaking & Guest Speaker:</b> Delivered a presentation on the risks, mechanics, and mitigation
+            strategies of deepfake technology for the <i>“Deepfake: Tool for Cybercrime” Webinar</i>.</li>
     </ul>
 
     <h2>Skills</h2>
     <div class="skills-list">
         <p><b>Programming Languages:</b> Java, Python, JavaScript, PHP, HTML/CSS</p>
         <p><b>Databases & Frameworks:</b> SQL (MySQL), MongoDB, JavaFX</p>
-        <p><b>Core Competencies:</b> Database Management, Software Engineering, Teaching & Mentoring, Leadership, Financial Budgeting, Problem Solving</p>
+        <p><b>Core Competencies:</b> Database Management, Software Engineering, Teaching & Mentoring, Leadership,
+            Financial Budgeting, Problem Solving</p>
     </div>
 
     <h2>Languages</h2>
@@ -183,4 +233,5 @@
     </div>
 
 </body>
+
 </html>
