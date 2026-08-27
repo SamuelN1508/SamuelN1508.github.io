@@ -5,27 +5,6 @@
     <meta charset="UTF-8">
     <title>Samuel Natanael - Project Portfolio</title>
     <style>
-        .navbar {
-            background-color: #1d1d1f;
-            padding: 14px 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .navbar a:hover {
-            color: #2997ff;
-        }
-
         @page {
             size: A4 landscape;
             margin: 0;
@@ -36,14 +15,14 @@
             -webkit-print-color-adjust: exact;
         }
 
+        /* BASE BODY STYLING */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
             margin: 0;
             padding: 0;
-            padding-top: 70px !important;
-            /* Ruang agar tidak tertutup navbar */
-            background-color: #f2f2f7;
-            /* Background abu-abu soft agar halaman A4 kontras */
+            padding-top: 80px !important;
+            /* Memberi ruang agar konten tidak tertutup navbar */
+            background-color: #e5e5ea;
             color: #1d1d1f;
             display: flex;
             flex-direction: column;
@@ -51,6 +30,7 @@
             /* Memaksa halaman .page tepat di tengah browser */
         }
 
+        /* PAGE A4 STYLING */
         .page {
             width: 297mm;
             height: 210mm;
@@ -61,24 +41,8 @@
             flex-direction: column;
             justify-content: space-between;
             background-color: #ffffff;
-            /* Lembar kertas A4 tetap putih */
             margin-bottom: 40px;
-            /* Jarak antar halaman A4 */
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            /* Efek bayangan kertas fisik */
-        }
-
-        /* Menjaga hasil Print / PDF tetap bersih tanpa background & bayangan */
-        @media print {
-            body {
-                background-color: #ffffff !important;
-                padding-top: 0 !important;
-            }
-
-            .page {
-                margin-bottom: 0 !important;
-                box-shadow: none !important;
-            }
         }
 
         /* COVER PAGE STYLES */
@@ -216,10 +180,77 @@
             font-weight: 700;
             margin-bottom: 2px;
         }
+
+        /* NAVBAR STYLES */
+        .navbar {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 55px;
+            background-color: rgba(29, 29, 31, 0.9) !important;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 20px;
+            z-index: 999999 !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #2997ff;
+        }
+
+        /* TOMBOL DOWNLOAD PDF STYLES */
+        .btn-download {
+            background-color: #0071e3;
+            color: #ffffff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: #0077ed;
+        }
+
+        /* PRINT & PDF EXPORT STYLES (GABUNGAN) */
+        @media print {
+            .navbar {
+                display: none !important;
+            }
+
+            body {
+                padding-top: 0 !important;
+                background-color: #ffffff !important;
+            }
+
+            .page {
+                margin-bottom: 0 !important;
+                box-shadow: none !important;
+            }
+        }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
+        <button onclick="window.print()" class="btn-download">📥 Download PDF</button>
         <a href="index.html">Project Portfolio</a>
         <a href="cv.html">Curriculum Vitae</a>
     </nav>
