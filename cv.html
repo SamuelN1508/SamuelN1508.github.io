@@ -72,6 +72,17 @@
             padding-bottom: 8px;
         }
 
+        .contact a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact a:hover {
+            color: #0071e3;
+            text-decoration: underline;
+        }
+
         h2 {
             font-size: 14px;
             text-transform: uppercase;
@@ -164,8 +175,13 @@
             background-color: #0077ed;
         }
 
-        /* OTOMATIS SEMBUNYIKAN NAVBAR SAAT PROSES SAVE PDF */
+        /* PENGATURAN CETAK (PRINT) AGAR PAS 1 HALAMAN PDF */
         @media print {
+            @page {
+                size: A4;
+                margin: 15mm; /* Mengatur margin kertas standar */
+            }
+
             .navbar {
                 display: none !important;
             }
@@ -173,6 +189,8 @@
             body {
                 padding-top: 0 !important;
                 background-color: #ffffff !important;
+                font-size: 11.5px; /* Sedikit diperkecil agar muat 1 halaman */
+                line-height: 1.35;
             }
 
             .cv-container {
@@ -185,6 +203,19 @@
                 padding: 0 !important;
                 box-shadow: none !important;
                 max-width: 100% !important;
+            }
+
+            /* Mengurangi jarak antar elemen khusus saat cetak/PDF */
+            h1 { font-size: 22px; margin-bottom: 0px; }
+            h2 { margin-top: 12px; margin-bottom: 6px; padding-bottom: 2px; }
+            .item { margin-bottom: 8px; }
+            .contact { margin-bottom: 10px; padding-bottom: 6px; }
+            ul { margin-bottom: 6px; }
+            
+            /* Mencegah elemen terpotong di antara 2 halaman jika terpaksa lebih dari 1 lembar */
+            .item, .skills-list, h2 {
+                page-break-inside: avoid;
+                break-inside: avoid;
             }
         }
     </style>
@@ -201,7 +232,10 @@
         <h1>Samuel Natanael</h1>
     <div class="subtitle">Informatics Student | AI & Database Engineering</div>
     <div class="contact">
-        08989208214 | samuelnatanael08@gmail.com | linkedin.com/in/samuel-natanael-643582339 | Yogyakarta, Indonesia
+        <a href="tel:08989208214">08989208214</a> | 
+        <a href="mailto:samuelnatanael08@gmail.com">samuelnatanael08@gmail.com</a> | 
+        <a href="https://www.linkedin.com/in/samuel-natanael-6a3582339/" target="_blank" rel="noopener noreferrer">Linkedin</a> |
+        <a href="https://www.google.com/maps/place/Yogyakarta,+Indonesia" target="_blank" rel="noopener noreferrer">Yogyakarta, Indonesia</a>
     </div>
 
     <h2>Experience</h2>
