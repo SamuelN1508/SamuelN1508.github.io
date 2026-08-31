@@ -6,13 +6,12 @@
     <title>CV - Samuel Natanael</title>
     <style>
         .navbar {
-            background-color: #1d1d1f;
-            padding: 14px 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background-color: #333;
+        /* Tambahkan styling lainnya */
+    }
 
         .navbar a {
             color: #ffffff;
@@ -30,9 +29,26 @@
             font-family: Arial, Helvetica, sans-serif;
             line-height: 1.4;
             color: #222;
-            margin: 40px auto;
+            margin: 0;
+            padding: 0;
+            background-color: #525659; /* Gelap di kiri dan kanan */
+        }
+
+        .cv-container {
+            width: 100%;
+            padding-top: 85px; /* Menghindari overlap dengan navbar */
+            padding-bottom: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cv-page {
+            background-color: #ffffff; /* Warna putih seperti kertas PDF */
+            width: 100%;
             max-width: 800px;
-            padding: 0 20px;
+            padding: 50px 60px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            box-sizing: border-box;
         }
 
         h1 {
@@ -98,15 +114,91 @@
             font-size: 12px;
             margin: 3px 0;
         }
+
+
+        /* NAVBAR STYLES */
+        .navbar {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 55px;
+            background-color: rgba(29, 29, 31, 0.9) !important;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 20px;
+            z-index: 999999 !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #2997ff;
+        }
+
+        /* TOMBOL DOWNLOAD PDF STYLES */
+        .btn-download {
+            background-color: #0071e3;
+            color: #ffffff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: #0077ed;
+        }
+
+        /* OTOMATIS SEMBUNYIKAN NAVBAR SAAT PROSES SAVE PDF */
+        @media print {
+            .navbar {
+                display: none !important;
+            }
+
+            body {
+                padding-top: 0 !important;
+                background-color: #ffffff !important;
+            }
+
+            .cv-container {
+                padding: 0 !important;
+                display: block !important;
+            }
+
+            .cv-page {
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                max-width: 100% !important;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar">
-        <a href="index.html">Project Portfolio</a>
-        <a href="cv.html">Curriculum Vitae</a>
-    </nav>
-    <h1>Samuel Natanael</h1>
+<nav class="navbar">
+    <button onclick="window.print()" class="btn-download">📥 Download PDF</button>
+    <a href="index.html">Project Portfolio</a>
+    <a href="cv.html">Curriculum Vitae</a>
+</nav>
+<div class="cv-container">
+    <div class="cv-page">
+        <h1>Samuel Natanael</h1>
     <div class="subtitle">Informatics Student | AI & Database Engineering</div>
     <div class="contact">
         08989208214 | samuelnatanael08@gmail.com | linkedin.com/in/samuel-natanael-643582339 | Yogyakarta, Indonesia
@@ -136,7 +228,8 @@
         <ul>
             <li>Facilitated laboratory and hands-on teaching sessions for 4 core courses: <b>Web Programming</b>,
                 <b>Object-Oriented Software Engineering</b>, <b>Data Structures</b>, and <b>Database Management
-                    Systems</b>.</li>
+                    Systems</b>.
+            </li>
             <li>Guided students in database design, SQL optimization (MySQL), Java/Python development, and code
                 debugging.</li>
         </ul>
@@ -176,7 +269,8 @@
         <div class="item-sub">BEM FTI UKDW</div>
         <ul>
             <li>Managed financial planning, budgeting, and resource allocation for high-profile events, including an
-                <b>NVIDIA Seminar (1,000+ attendees)</b> and the <b>Informatics Anniversary Awards</b>.</li>
+                <b>NVIDIA Seminar (1,000+ attendees)</b> and the <b>Informatics Anniversary Awards</b>.
+            </li>
             <li>Led social impact initiatives and community engagement programs across the faculty.</li>
         </ul>
     </div>
@@ -231,6 +325,8 @@
         <p><b>Indonesian:</b> Native / Bilingual Proficiency</p>
         <p><b>English:</b> Professional Working Proficiency (IELTS: 7.5 | TOEFL: 567)</p>
     </div>
+    </div>
+</div>
 
 </body>
 
