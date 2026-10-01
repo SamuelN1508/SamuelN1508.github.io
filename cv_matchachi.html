@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CV Matcharista - Samuel Natanael</title>
+    <style>
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: #333;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .navbar a:hover {
+            color: #2997ff;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.4;
+            color: #222;
+            margin: 0;
+            padding: 0;
+            background-color: #525659;
+        }
+
+        .cv-container {
+            width: 100%;
+            padding-top: 85px;
+            padding-bottom: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cv-page {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 800px;
+            padding: 50px 60px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        .contact {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 8px;
+        }
+
+        .contact a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact a:hover {
+            color: #0071e3;
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 3px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .item {
+            margin-bottom: 10px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .item-sub {
+            font-style: italic;
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 4px;
+        }
+
+        ul {
+            margin: 3px 0 8px 18px;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        li {
+            margin-bottom: 3px;
+        }
+
+        .skills-list p {
+            font-size: 12px;
+            margin: 3px 0;
+        }
+
+        /* NAVBAR STYLES */
+        .navbar {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 55px;
+            background-color: rgba(29, 29, 31, 0.9) !important;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 20px;
+            z-index: 999999 !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            flex-wrap: wrap; /* in case there are many links */
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #2997ff;
+        }
+
+        .btn-download {
+            background-color: #0071e3;
+            color: #ffffff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: #0077ed;
+        }
+
+        /* PENGATURAN CETAK (PRINT) */
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+
+            .navbar {
+                display: none !important;
+            }
+
+            body {
+                padding-top: 0 !important;
+                background-color: #ffffff !important;
+                font-size: 11.5px;
+                line-height: 1.35;
+            }
+
+            .cv-container {
+                padding: 0 !important;
+                display: block !important;
+            }
+
+            .cv-page {
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                max-width: 100% !important;
+            }
+
+            h1 { font-size: 22px; margin-bottom: 0px; }
+            h2 { margin-top: 12px; margin-bottom: 6px; padding-bottom: 2px; }
+            .item { margin-bottom: 8px; }
+            .contact { margin-bottom: 10px; padding-bottom: 6px; }
+            ul { margin-bottom: 6px; }
+            
+            .item, .skills-list, h2 {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <button onclick="window.print()" class="btn-download">📥 Download PDF</button>
+    <a href="index.html">Portfolio</a>
+    <a href="cv.html">Data Analyst</a>
+    <a href="cv_haus.html">Haus!</a>
+    <a href="cv_tutor.html">Tutor</a>
+    <a href="cv_matchachi.html" class="active" style="color: #2997ff;">Matcharista</a>
+</nav>
+
+<div class="cv-container">
+    <div class="cv-page">
+        <h1>Samuel Natanael</h1>
+        <div class="subtitle">Kandidat Matcharista | Komunikatif, Ramah & Berpengalaman Mengelola Transaksi</div>
+        <div class="contact">
+            <a href="tel:08989208214">08989208214</a> | 
+            <a href="mailto:samuelnatanael08@gmail.com">samuelnatanael08@gmail.com</a> | 
+            <a href="https://www.linkedin.com/in/samuel-natanael-6a3582339/" target="_blank" rel="noopener noreferrer">linkedin.com/in/samuel-natanael-6a3582339</a> |
+            Yogyakarta, DIY
+        </div>
+
+        <h2>Profil Singkat</h2>
+        <p style="font-size: 12px; margin-bottom: 15px; text-align: justify; line-height: 1.5;">
+            Kandidat pekerja keras yang selalu mengutamakan pelayanan pelanggan yang ramah, sopan, dan profesional. Memiliki pengalaman relevan dalam pencatatan transaksi keuangan (kasir), pengelolaan stok logistik, dan menjaga SOP bekerja secara rapi. Terbiasa berhadapan langsung dengan pelanggan serta memiliki skill komunikasi yang sangat baik. Sangat antusias untuk belajar menyajikan minuman berstandar tinggi dan berkontribusi sebagai Matcharista di A MatchaChi Amplaz.
+        </p>
+
+        <h2>Pengalaman & Keterampilan Relevan</h2>
+
+        <div class="item">
+            <div class="item-header">
+                <span>Bendahara & Pengelola Transaksi</span>
+                <span>02/2024 – Sekarang</span>
+            </div>
+            <div class="item-sub">BEM FTI Universitas Kristen Duta Wacana (UKDW)</div>
+            <ul>
+                <li>Melakukan <b>prosedur pencatatan dan pembayaran transaksi</b> keuangan organisasi dengan sangat teliti, jujur, dan bertanggung jawab (mirip dengan operasional kasir).</li>
+                <li>Menjaga integritas arus kas dan memastikan setiap pencatatan sesuai dengan SOP keuangan yang berlaku.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <span>Staff Pelayanan (Customer Service)</span>
+                <span>08/2024 – Sekarang</span>
+            </div>
+            <div class="item-sub">IT CENTER - Universitas Kristen Duta Wacana (UKDW)</div>
+            <ul>
+                <li><b>Melayani ratusan pengguna/pelanggan</b> secara langsung dengan sikap yang sangat ramah, sabar, dan profesional.</li>
+                <li>Menunjukkan <b>skill komunikasi yang baik</b> saat menangani berbagai permintaan, memastikan kepuasan pelanggan tetap terjaga.</li>
+                <li>Selalu berpenampilan rapi dan mematuhi tata tertib operasional pelayanan di jam kerja.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <span>Koordinator Logistik & Event Organizer</span>
+                <span>01/2024 – 06/2024</span>
+            </div>
+            <div class="item-sub">Universitas Kristen Duta Wacana (UKDW)</div>
+            <ul>
+                <li>Bertanggung jawab penuh atas <b>pencatatan dan pengelolaan stok barang/logistik</b> yang dibutuhkan selama acara berlangsung.</li>
+                <li>Bekerja sama dalam tim yang <i>fast-paced</i> dan selalu menjaga area kerja tetap bersih, teratur, dan sesuai target waktu.</li>
+            </ul>
+        </div>
+
+        <h2>Pendidikan</h2>
+        <div class="item">
+            <div class="item-header">
+                <span>Universitas Kristen Duta Wacana (UKDW)</span>
+                <span>08/2023 – Sekarang</span>
+            </div>
+            <div class="item-sub">S1 Informatika (Lulusan Sederajat SMA/SMK) | <b>IPK: 3.76 / 4.00</b></div>
+        </div>
+
+        <h2>Keahlian & Kompetensi Utama</h2>
+        <div class="skills-list">
+            <p><b>Pelayanan & Komunikasi:</b> Ramah, Sopan, Komunikasi Interpersonal Efektif, Siap Bekerja dengan Target Pelayanan (Hospitality).</p>
+            <p><b>Operasional F&B Dasar:</b> Prosedur Kasir / Pencatatan Transaksi, Pengelolaan Stok Barang (Inventory), Kepatuhan SOP Pekerjaan.</p>
+            <p><b>Sikap Kerja:</b> Berpenampilan Rapi, Bertanggung Jawab, Disiplin Waktu, Cepat Beradaptasi, dan Sangat Terbuka untuk Mempelajari Standar Resep Minuman.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

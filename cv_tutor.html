@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CV Tutor - Samuel Natanael</title>
+    <style>
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: #333;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .navbar a:hover {
+            color: #2997ff;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.4;
+            color: #222;
+            margin: 0;
+            padding: 0;
+            background-color: #525659;
+        }
+
+        .cv-container {
+            width: 100%;
+            padding-top: 85px;
+            padding-bottom: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cv-page {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 800px;
+            padding: 50px 60px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        .contact {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 8px;
+        }
+
+        .contact a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact a:hover {
+            color: #0071e3;
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 3px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .item {
+            margin-bottom: 10px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .item-sub {
+            font-style: italic;
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 4px;
+        }
+
+        ul {
+            margin: 3px 0 8px 18px;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        li {
+            margin-bottom: 3px;
+        }
+
+        .skills-list p {
+            font-size: 12px;
+            margin: 3px 0;
+        }
+
+        /* NAVBAR STYLES */
+        .navbar {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 55px;
+            background-color: rgba(29, 29, 31, 0.9) !important;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 20px;
+            z-index: 999999 !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #2997ff;
+        }
+
+        .btn-download {
+            background-color: #0071e3;
+            color: #ffffff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: #0077ed;
+        }
+
+        /* PENGATURAN CETAK (PRINT) */
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+
+            .navbar {
+                display: none !important;
+            }
+
+            body {
+                padding-top: 0 !important;
+                background-color: #ffffff !important;
+                font-size: 11.5px;
+                line-height: 1.35;
+            }
+
+            .cv-container {
+                padding: 0 !important;
+                display: block !important;
+            }
+
+            .cv-page {
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                max-width: 100% !important;
+            }
+
+            h1 { font-size: 22px; margin-bottom: 0px; }
+            h2 { margin-top: 12px; margin-bottom: 6px; padding-bottom: 2px; }
+            .item { margin-bottom: 8px; }
+            .contact { margin-bottom: 10px; padding-bottom: 6px; }
+            ul { margin-bottom: 6px; }
+            
+            .item, .skills-list, h2 {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <button onclick="window.print()" class="btn-download">📥 Download PDF</button>
+    <a href="index.html">Portfolio</a>
+    <a href="cv.html">Data Analyst</a>
+    <a href="cv_haus.html">Haus!</a>
+    <a href="cv_tutor.html" style="color: #2997ff;">Tutor</a>
+    <a href="cv_matchachi.html">Matcharista</a>
+</nav>
+
+<div class="cv-container">
+    <div class="cv-page">
+        <h1>Samuel Natanael</h1>
+        <div class="subtitle">Online Educator & Public Speaker | IELTS 7.5</div>
+        <div class="contact">
+            <a href="tel:08989208214">08989208214</a> | 
+            <a href="mailto:samuelnatanael08@gmail.com">samuelnatanael08@gmail.com</a> | 
+            <a href="https://www.linkedin.com/in/samuel-natanael-6a3582339/" target="_blank" rel="noopener noreferrer">linkedin.com/in/samuel-natanael-6a3582339</a> |
+            Yogyakarta, Indonesia (Remote / WFH Ready)
+        </div>
+
+        <h2>Professional Summary</h2>
+        <p style="font-size: 12px; margin-bottom: 15px; text-align: justify; line-height: 1.5;">
+            Passionate educator with 2+ years of tutoring experience. Fluent in English (IELTS 7.5) with strong communication skills. Achieved 90% student satisfaction and 100% pass rates. Adept at engaging online classes and interactive learning. Fully equipped for remote WFH teaching.
+        </p>
+
+        <h2>Teaching & Tutoring Experience</h2>
+
+        <div class="item">
+            <div class="item-header">
+                <span>Academic Tutor & Mentor</span>
+                <span>08/2024 – 08/2025</span>
+            </div>
+            <div class="item-sub">Universitas Kristen Duta Wacana (UKDW)</div>
+            <ul>
+                <li>Conducted regular tutoring sessions for university students, delivering complex concepts in a fun, interactive, and easily understandable manner.</li>
+                <li>Achieved a <b>90% student satisfaction rate</b> for teaching delivery based on feedback surveys.</li>
+                <li>Maintained a <b>100% pass rate</b> for regular attendees, highlighting the ability to track progress and support student success.</li>
+                <li>Managed classes effectively, ensuring punctuality and a highly positive learning environment.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <span>Assistant Lecturer</span>
+                <span>09/2025 – Present</span>
+            </div>
+            <div class="item-sub">Universitas Kristen Duta Wacana (UKDW)</div>
+            <ul>
+                <li>Facilitated laboratory and hands-on teaching sessions for multiple core courses, managing classes of up to 40 students.</li>
+                <li>Provided timely, personalized, and constructive feedback on student assignments to foster continuous improvement.</li>
+                <li>Designed interactive teaching modules and utilized digital resources to keep students actively involved.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <span>Private Tutor & Guest Teacher</span>
+                <span>04/2026 – 06/2026</span>
+            </div>
+            <div class="item-sub">SMAN 1 Mlati (High School)</div>
+            <ul>
+                <li>Taught high school students in 1:1 and small group settings, tailoring the curriculum to individual learning speeds.</li>
+                <li>Focused on analytical thinking, logic, and problem-solving strategies, preparing them for national competitions.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <span>Public Speaker & Workshop Co-Leader</span>
+                <span>01/2024 – 06/2024</span>
+            </div>
+            <div class="item-sub">Duta Wacana Christian University</div>
+            <ul>
+                <li>Spearheaded interactive workshops for 28 participants, maintaining high energy and engagement throughout the sessions.</li>
+                <li>Achieved 100% positive satisfaction through effective communication and dynamic presentation skills.</li>
+                <li>Delivered a seminar presentation on technology awareness, demonstrating confidence in public speaking.</li>
+            </ul>
+        </div>
+
+        <h2>Education</h2>
+        <div class="item">
+            <div class="item-header">
+                <span>Universitas Kristen Duta Wacana (UKDW)</span>
+                <span>08/2023 – Present</span>
+            </div>
+            <div class="item-sub">Bachelor's Degree in Informatics | <b>GPA: 3.76 / 4.00</b></div>
+        </div>
+
+        <h2>Skills & Proficiencies</h2>
+        <div class="skills-list">
+            <p><b>Teaching & Education:</b> Online Teaching, Student Engagement, Progress Tracking, Constructive Feedback, Curriculum Delivery, Gamified Learning.</p>
+            <p><b>Communication Skills:</b> Advanced Public Speaking, Presentation Skills, Active Listening, Empathy, Creative Storytelling.</p>
+            <p><b>Languages:</b> English (Fluent - IELTS: 7.5 | TOEFL: 567 | Excellent Spoken & Written Proficiency), Indonesian (Native).</p>
+            <p><b>Technical Setup:</b> High-speed Wi-Fi, Dedicated Laptop/Desktop, Proficient in Zoom, Google Meet, and various EdTech platforms.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CV Haus! - Samuel Natanael</title>
+    <style>
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: #333;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .navbar a:hover {
+            color: #2997ff;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.4;
+            color: #222;
+            margin: 0;
+            padding: 0;
+            background-color: #525659;
+        }
+
+        .cv-container {
+            width: 100%;
+            padding-top: 85px;
+            padding-bottom: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cv-page {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 800px;
+            padding: 50px 60px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        .contact {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 8px;
+        }
+
+        .contact a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact a:hover {
+            color: #0071e3;
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 3px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .item {
+            margin-bottom: 10px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .item-sub {
+            font-style: italic;
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 4px;
+        }
+
+        ul {
+            margin: 3px 0 8px 18px;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        li {
+            margin-bottom: 3px;
+        }
+
+        .skills-list p {
+            font-size: 12px;
+            margin: 3px 0;
+        }
+
+        /* NAVBAR STYLES */
+        .navbar {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 55px;
+            background-color: rgba(29, 29, 31, 0.9) !important;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 20px;
+            z-index: 999999 !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #2997ff;
+        }
+
+        .btn-download {
+            background-color: #0071e3;
+            color: #ffffff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: #0077ed;
+        }
+
+        /* PENGATURAN CETAK (PRINT) */
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+
+            .navbar {
+                display: none !important;
+            }
+
+            body {
+                padding-top: 0 !important;
+                background-color: #ffffff !important;
+                font-size: 11.5px;
+                line-height: 1.35;
+            }
+
+            .cv-container {
+                padding: 0 !important;
+                display: block !important;
+            }
+
+            .cv-page {
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                max-width: 100% !important;
+            }
+
+            h1 { font-size: 22px; margin-bottom: 0px; }
+            h2 { margin-top: 12px; margin-bottom: 6px; padding-bottom: 2px; }
+            .item { margin-bottom: 8px; }
+            .contact { margin-bottom: 10px; padding-bottom: 6px; }
+            ul { margin-bottom: 6px; }
+            
+            .item, .skills-list, h2 {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <button onclick="window.print()" class="btn-download">📥 Download PDF</button>
+    <a href="index.html">Portfolio</a>
+    <a href="cv.html">Data Analyst</a>
+    <a href="cv_haus.html" style="color: #2997ff;">Haus!</a>
+    <a href="cv_tutor.html">Tutor</a>
+    <a href="cv_matchachi.html">Matcharista</a>
+</nav>
+
+<div class="cv-container">
+    <div class="cv-page">
+        <h1>Samuel Natanael</h1>
+        <div class="subtitle">Mahasiswa Aktif | Komunikatif, Teliti, & Terbiasa Bekerja dalam Tim</div>
+        <div class="contact">
+            <a href="tel:08989208214">08989208214</a> | 
+            <a href="mailto:samuelnatanael08@gmail.com">samuelnatanael08@gmail.com</a> | 
+            <a href="https://www.linkedin.com/in/samuel-natanael-6a3582339/" target="_blank" rel="noopener noreferrer">linkedin.com/in/samuel-natanael-6a3582339</a> |
+            Yogyakarta, Indonesia
+        </div>
+
+        <h2>Profil Singkat</h2>
+        <p style="font-size: 12px; margin-bottom: 15px; text-align: justify; line-height: 1.5;">
+            Mahasiswa semester 5 Universitas Kristen Duta Wacana yang tertarik berkontribusi sebagai <i>Part-Time Crew</i> di <b>Haus!</b>. Memiliki rekam jejak yang kuat dalam organisasi (Bendahara) dan pelayanan (Staff & Tutor), yang melatih ketelitian saya dalam mengelola keuangan (kasir), merespons kebutuhan pelanggan, serta kemampuan berkolaborasi dalam lingkungan kerja yang serba cepat. Saya adalah pribadi yang disiplin, ramah, jujur, dan selalu antusias mempelajari hal baru.
+        </p>
+
+        <h2>Pengalaman & Organisasi Terkait</h2>
+
+        <div class="item">
+            <div class="item-header">
+                <span>Bendahara & Koordinator Bidang Sosial</span>
+                <span>02/2024 – Sekarang</span>
+            </div>
+            <div class="item-sub">BEM FTI Universitas Kristen Duta Wacana (UKDW)</div>
+            <ul>
+                <li>Bertanggung jawab mengelola perputaran uang (arus kas) serta pencatatan transaksi masuk dan keluar secara teliti dan jujur.</li>
+                <li>Menangani dana dan <i>budgeting</i> operasional untuk acara-acara besar yang diikuti oleh 1.000+ peserta.</li>
+                <li>Terbiasa bekerja lintas divisi dalam satu tim untuk memastikan target organisasi tercapai.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <span>Staff Pelayanan (Customer Service)</span>
+                <span>08/2024 – Sekarang</span>
+            </div>
+            <div class="item-sub">IT CENTER - Universitas Kristen Duta Wacana (UKDW)</div>
+            <ul>
+                <li>Memberikan <i>direct service</i> atau pelayanan langsung kepada ratusan mahasiswa dan staf kampus setiap harinya.</li>
+                <li>Merespons keluhan pengguna, memberikan solusi dengan cepat, dan berkomunikasi dengan sikap yang ramah serta solutif.</li>
+                <li>Melatih kemampuan manajemen waktu dengan menjaga <i>standby</i> sesuai jadwal shift kerja yang ditentukan.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <span>Event Organizer & Pembicara Acara</span>
+                <span>01/2024 – 06/2024</span>
+            </div>
+            <div class="item-sub">Universitas Kristen Duta Wacana (UKDW)</div>
+            <ul>
+                <li>Mengelola jalannya acara secara langsung, memastikan seluruh kebutuhan logistik dan peserta tertangani dengan baik.</li>
+                <li>Mampu menarik perhatian audiens dan menyampaikan informasi dengan jelas sehingga peserta merasa nyaman dan terbantu.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <span>Asisten Dosen & Tutor Akademik</span>
+                <span>08/2024 – Sekarang</span>
+            </div>
+            <div class="item-sub">UKDW & BEM FTI</div>
+            <ul>
+                <li>Memandu sesi pendampingan belajar bagi banyak mahasiswa dengan mengutamakan kesabaran dan empati.</li>
+                <li>Dituntut untuk selalu disiplin, datang tepat waktu, dan memiliki tingkat tanggung jawab yang tinggi.</li>
+            </ul>
+        </div>
+
+        <h2>Pendidikan</h2>
+        <div class="item">
+            <div class="item-header">
+                <span>Universitas Kristen Duta Wacana (UKDW)</span>
+                <span>08/2023 – Sekarang</span>
+            </div>
+            <div class="item-sub">S1 Informatika | <b>IPK: 3.76 / 4.00</b></div>
+        </div>
+
+        <h2>Keahlian Tambahan</h2>
+        <div class="skills-list">
+            <p><b>Soft Skills:</b> Pelayanan Pelanggan yang Ramah, Komunikasi Efektif, Kejujuran & Kedisiplinan, Pengelolaan Kas (Sistem Kasir Dasar), Adaptasi Lingkungan Cepat, Mampu Bekerja Fleksibel/Shift.</p>
+            <p><b>Peralatan Pendukung:</b> Microsoft Office, Sistem Pencatatan Keuangan (Dasar).</p>
+            <p><b>Bahasa:</b> Bahasa Indonesia (Penutur Asli), Bahasa Inggris (Fasih - IELTS 7.5 / TOEFL 567).</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
